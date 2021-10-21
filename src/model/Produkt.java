@@ -8,4 +8,21 @@ public class Produkt {
         this.navn = navn;
         produktGruppe.addProdukt(this);
     }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public int getProduktnummer() {
+        return produktnummer;
+    }
+
+    public void setProduktnummer(int produktnummer) {
+        this.produktnummer = produktnummer;
+    }
+
 }

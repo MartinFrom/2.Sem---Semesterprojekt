@@ -7,12 +7,15 @@ public class Udlejning extends Produkt{
     private LocalDate SlutDato;
     private double pant;
     private boolean VarerAfleveret;
+    private int afleveredeFustager;
 
-    public Udlejning (LocalDate StartDato, LocalDate Slutdato, double pant, String navn, ProduktGruppe produktGruppe) {
+    public Udlejning (String navn, ProduktGruppe produktGruppe, LocalDate StartDato, LocalDate Slutdato, double pant) {
         super(navn, produktGruppe);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
         this.pant = pant;
         this.VarerAfleveret = false;
     }
+
+
 }
