@@ -9,16 +9,18 @@ public class Produkt {
         produktGruppe.addProdukt(this);
     }
 
+    // getters
     public String getNavn() {
         return navn;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
     public int getProduktnummer() {
         return produktnummer;
+    }
+
+    // setters
+    public void setNavn(String navn) {
+        this.navn = navn;
     }
 
     public void setProduktnummer(int produktnummer) {

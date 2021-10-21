@@ -9,5 +9,21 @@ public class Klippekort extends Produkt{
         this.klipSolgt = klipSolgt;
     }
 
+    // getters
+    public int getKlipSolgt() {
+        return klipSolgt;
+    }
 
+    public int getKlipBrugt() {
+        return klipBrugt;
+    }
+
+    // setters
+    public void setKlipSolgt(int klipSolgt) {
+        this.klipSolgt = klipSolgt;
+    }
+
+    public void setKlipBrugt(int klipBrugt) {
+        this.klipBrugt = klipBrugt;
+    }
 }
