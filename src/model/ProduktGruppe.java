@@ -10,10 +10,10 @@ public class ProduktGruppe {
     public ProduktGruppe(String navn) {
         this.navn = navn;
     }
-    //---------------------------------------------------------------------
-    // Associering til "Produkt"
-    public Produkt createProdukt(String navn, int produktnummer) {
-        Produkt produkt = new Produkt(navn, this);
+
+    //-----------------------------Associering til "Produkt"----------------------------------------
+    public Produkt createProdukt(String navn, int produktnummer, Pris pris) {
+        Produkt produkt = new Produkt(navn, this, pris);
         produkter.add(produkt);
         return produkt;
     }
@@ -31,7 +31,6 @@ public class ProduktGruppe {
     }
     //---------------------------------------------------------------------
     // getters
-
     public String getNavn() {
         return navn;
     }
@@ -41,7 +40,6 @@ public class ProduktGruppe {
     }
 
     // setters
-
     public void setNavn(String navn) {
         this.navn = navn;
     }

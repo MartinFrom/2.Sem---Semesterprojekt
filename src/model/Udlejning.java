@@ -9,8 +9,8 @@ public class Udlejning extends Produkt{
     private boolean VarerAfleveret;
     private int afleveredeFustager;
 
-    public Udlejning (String navn, ProduktGruppe produktGruppe, LocalDate StartDato, LocalDate Slutdato, double pant) {
-        super(navn, produktGruppe);
+    public Udlejning (String navn, ProduktGruppe produktGruppe, LocalDate StartDato, LocalDate Slutdato, double pant, Pris pris) {
+        super(navn, produktGruppe, pris);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
         this.pant = pant;
