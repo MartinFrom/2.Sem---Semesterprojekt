@@ -4,8 +4,8 @@ public class Klippekort extends Produkt{
     private int klipSolgt;
     private int klipBrugt;
 
-    public Klippekort (int klipSolgt, String navn, ProduktGruppe produktGruppe) {
-        super(navn, produktGruppe);
+    public Klippekort (int klipSolgt, String navn, ProduktGruppe produktGruppe, Pris pris) {
+        super(navn, produktGruppe, pris);
         this.klipSolgt = klipSolgt;
     }
 
