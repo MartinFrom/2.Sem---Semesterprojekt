@@ -1,24 +1,26 @@
 package model;
 
 public class OrdreLinje {
-    private Produkt produkt;
+    private Pris pris;
     private int antal;
-    private double pris;
+    private double oPris;
 
 
-    public OrdreLinje(int antal, double pris, Produkt produkt) {
+    public OrdreLinje(int antal, double oPris, Pris pris) {
         this.antal = antal;
+        this.oPris = oPris;
         this.pris = pris;
-        this.produkt = produkt;
     }
 
     // getters og setters
-    public Produkt getProdukt() {
-        return produkt;
+
+
+    public void setoPris(double pris) {
+        this.oPris = oPris;
     }
 
-    public void setProdukt(Produkt produkt) {
-        this.produkt = produkt;
+    public double getoPris() {
+        return oPris;
     }
 
     public int getAntal() {
@@ -29,11 +31,11 @@ public class OrdreLinje {
         this.antal = antal;
     }
 
-    public double getPris() {
+    public Pris getPris() {
         return pris;
     }
 
-    public void setPris(double pris) {
+    public void setPris(Pris pris) {
         this.pris = pris;
     }
 
