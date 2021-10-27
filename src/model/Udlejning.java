@@ -16,51 +16,55 @@ public class Udlejning {
         this.SlutDato = Slutdato;
     }
 
-    // getters
+    // getters og setters
+
+
     public LocalDate getStartDato() {
         return StartDato;
+    }
+
+    public void setStartDato(LocalDate startDato) {
+        StartDato = startDato;
     }
 
     public LocalDate getSlutDato() {
         return SlutDato;
     }
 
-    public int getAfleveredeFustager() {
-        return afleveredeFustager;
+    public void setSlutDato(LocalDate slutDato) {
+        SlutDato = slutDato;
     }
 
     public boolean isErBetalt() {
         return erBetalt;
     }
 
-    public int getBrugteFustager() {
-        return brugteFustager;
+    public void setErBetalt(boolean erBetalt) {
+        this.erBetalt = erBetalt;
     }
 
-    public ArrayList<UdlejningsProdukt> getProdukter() {
-        return produkter;
-    }
-
-    // setters
-
-    public void setStartDato(LocalDate startDato) {
-        StartDato = startDato;
-    }
-
-    public void setSlutDato(LocalDate slutDato) {
-        SlutDato = slutDato;
+    public int getAfleveredeFustager() {
+        return afleveredeFustager;
     }
 
     public void setAfleveredeFustager(int afleveredeFustager) {
         this.afleveredeFustager = afleveredeFustager;
     }
 
-    public void setErBetalt(boolean erBetalt) {
-        this.erBetalt = erBetalt;
+    public int getBrugteFustager() {
+        return brugteFustager;
     }
 
     public void setBrugteFustager(int brugteFustager) {
         this.brugteFustager = brugteFustager;
+    }
+
+    public ArrayList<UdlejningsProdukt> getProdukter() {
+        return produkter;
+    }
+
+    public void setProdukter(ArrayList<UdlejningsProdukt> produkter) {
+        this.produkter = produkter;
     }
 
     //Add/remove ArrayList Produkter
@@ -83,6 +87,10 @@ public class Udlejning {
 
     public double beregnPant() {
         return 0;
+    }
+
+    public void afleverProdukt (OrdreLinje ordreLinje, int antalBrugteProdukter) {
+
     }
 
 }

@@ -8,12 +8,12 @@ public class UdlejningsProdukt extends Produkt{
         this.pant = pant;
     }
 
-    //getters
+    //getters og setters
+
     public double getPant() {
         return pant;
     }
 
-    //setters
     public void setPant(double pant) {
         this.pant = pant;
     }

@@ -12,22 +12,28 @@ public class Produkt {
         pris.addProdukt(this);
     }
 
-    // getters
+    //getters og setters
     public String getNavn() {
         return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
     }
 
     public int getProduktnummer() {
         return produktnummer;
     }
 
-    // setters
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
     public void setProduktnummer(int produktnummer) {
         this.produktnummer = produktnummer;
     }
 
+    public Pris getPris() {
+        return pris;
+    }
+
+    public void setPris(Pris pris) {
+        this.pris = pris;
+    }
 }

@@ -11,6 +11,23 @@ public class Prisliste {
         this.navn = navn;
     }
 
+    // getters og setters
+    public String getNavn() {
+        return navn;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public ArrayList<Pris> getPrisliste() {
+        return prisliste;
+    }
+
+    public void setPrisliste(ArrayList<Pris> prisliste) {
+        this.prisliste = prisliste;
+    }
+
     public Pris opretPris(Produkt produkt, double pris, Prisliste prisliste) {
         return null;
     }

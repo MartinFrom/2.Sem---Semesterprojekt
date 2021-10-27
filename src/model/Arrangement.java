@@ -15,6 +15,7 @@ public class Arrangement extends Prisliste {
         this.tilmeldte = tilmeldte;
     }
 
+    // getters og setters
     public LocalDate getDato() {
         return dato;
     }

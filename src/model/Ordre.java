@@ -15,6 +15,47 @@ public class Ordre {
         this.betalingsform = betalingsform;
     }
 
+    // getters og setters
+    public int getOrdreNr() {
+        return ordreNr;
+    }
+
+    public void setOrdreNr(int ordreNr) {
+        this.ordreNr = ordreNr;
+    }
+
+    public double getSamletPris() {
+        return samletPris;
+    }
+
+    public void setSamletPris(double samletPris) {
+        this.samletPris = samletPris;
+    }
+
+    public Prisliste getPrisliste() {
+        return prisliste;
+    }
+
+    public void setPrisliste(Prisliste prisliste) {
+        this.prisliste = prisliste;
+    }
+
+    public Betalingsform getBetalingsform() {
+        return betalingsform;
+    }
+
+    public void setBetalingsform(Betalingsform betalingsform) {
+        this.betalingsform = betalingsform;
+    }
+
+    public ArrayList<OrdreLinje> getOrdrelinjer() {
+        return ordrelinjer;
+    }
+
+    public void setOrdrelinjer(ArrayList<OrdreLinje> ordrelinjer) {
+        this.ordrelinjer = ordrelinjer;
+    }
+
     public OrdreLinje opretOrdreLinje(int antal, Produkt produkt, double pris) {
         return null;
     }

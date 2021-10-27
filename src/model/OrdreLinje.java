@@ -12,6 +12,31 @@ public class OrdreLinje {
         this.produkt = produkt;
     }
 
+    // getters og setters
+    public Produkt getProdukt() {
+        return produkt;
+    }
+
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
+    }
+
+    public int getAntal() {
+        return antal;
+    }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
+
+    public double getPris() {
+        return pris;
+    }
+
+    public void setPris(double pris) {
+        this.pris = pris;
+    }
+
     public double findProduktPris() {
         return 0;
     }
