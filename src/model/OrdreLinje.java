@@ -13,8 +13,6 @@ public class OrdreLinje {
     }
 
     // getters og setters
-
-
     public void setoPris(double pris) {
         this.oPris = oPris;
     }
