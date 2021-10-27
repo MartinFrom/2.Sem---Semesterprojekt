@@ -3,8 +3,8 @@ package model;
 public class UdlejningsProdukt extends Produkt{
     private double pant;
 
-    public UdlejningsProdukt (double pant, String navn, ProduktGruppe produktGruppe, Pris pris) {
-        super(navn, produktGruppe, pris);
+    public UdlejningsProdukt (double pant, String navn, ProduktGruppe produktGruppe) {
+        super(navn, produktGruppe);
         this.pant = pant;
     }
 

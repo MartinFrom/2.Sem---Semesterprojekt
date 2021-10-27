@@ -5,16 +5,14 @@ public class OrdreLinje {
     private int antal;
     private double oPris;
 
-
-    public OrdreLinje(int antal, double oPris, Pris pris) {
+    public OrdreLinje(int antal, Pris pris) {
         this.antal = antal;
-        this.oPris = oPris;
         this.pris = pris;
     }
 
     // getters og setters
     public void setoPris(double pris) {
-        this.oPris = oPris;
+        this.oPris = pris;
     }
 
     public double getoPris() {
@@ -38,6 +36,11 @@ public class OrdreLinje {
     }
 
     public double findProduktPris() {
-        return 0;
+        return pris.getPris();
+    }
+
+    public double samletPris() {
+        oPris = findProduktPris() * antal;
+        return oPris;
     }
 }

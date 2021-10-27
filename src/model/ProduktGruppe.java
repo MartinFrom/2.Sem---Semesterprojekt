@@ -12,8 +12,8 @@ public class ProduktGruppe {
     }
 
     //-----------------------------Associering til "Produkt"----------------------------------------
-    public Produkt createProdukt(String navn, int produktnummer, Pris pris) {
-        Produkt produkt = new Produkt(navn, this, pris);
+    public Produkt createProdukt(String navn, int produktnummer) {
+        Produkt produkt = new Produkt(navn, this);
         produkter.add(produkt);
         return produkt;
     }

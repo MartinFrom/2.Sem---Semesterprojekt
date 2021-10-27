@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class Prisliste {
     String navn;
-    ArrayList<Pris> prisliste = new ArrayList<>();
+    ArrayList<Pris> priser = new ArrayList<>();
 
     public Prisliste(String navn) {
-
         this.navn = navn;
     }
 
@@ -21,18 +20,21 @@ public class Prisliste {
     }
 
     public ArrayList<Pris> getPrisliste() {
-        return prisliste;
+        return priser;
     }
 
     public void setPrisliste(ArrayList<Pris> prisliste) {
-        this.prisliste = prisliste;
+        this.priser = prisliste;
     }
 
-    public Pris opretPris(Produkt produkt, double pris, Prisliste prisliste) {
-        return null;
+    public Pris opretPris(Produkt produkt, double varePris) {
+        Pris pris = new Pris(varePris, produkt, this);
+        priser.add(pris);
+        return pris;
+
     }
 
     public void sletPris(Pris pris) {
-
+        priser.remove(pris);
     }
 }
