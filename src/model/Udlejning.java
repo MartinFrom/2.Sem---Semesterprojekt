@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Udlejning {
     private LocalDate StartDato;
     private LocalDate SlutDato;
-    private boolean VarerAfleveret;
+    private boolean erBetalt;
     private int afleveredeFustager;
     private int brugteFustager;
     private ArrayList<UdlejningsProdukt> produkter = new ArrayList<>();
@@ -29,8 +29,8 @@ public class Udlejning {
         return afleveredeFustager;
     }
 
-    public boolean isVarerAfleveret() {
-        return VarerAfleveret;
+    public boolean isErBetalt() {
+        return erBetalt;
     }
 
     public int getBrugteFustager() {
@@ -55,8 +55,8 @@ public class Udlejning {
         this.afleveredeFustager = afleveredeFustager;
     }
 
-    public void setVarerAfleveret(boolean varerAfleveret) {
-        VarerAfleveret = varerAfleveret;
+    public void setErBetalt(boolean erBetalt) {
+        this.erBetalt = erBetalt;
     }
 
     public void setBrugteFustager(int brugteFustager) {

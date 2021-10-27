@@ -11,4 +11,8 @@ public class OrdreLinje {
         this.pris = pris;
         this.produkt = produkt;
     }
+
+    public double findProduktPris() {
+        return 0;
+    }
 }

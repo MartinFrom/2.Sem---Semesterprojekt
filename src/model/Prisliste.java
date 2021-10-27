@@ -12,7 +12,7 @@ public class Prisliste {
     }
 
     public Pris opretPris(Produkt produkt, double pris, Prisliste prisliste) {
-
+        return null;
     }
 
     public void sletPris(Pris pris) {

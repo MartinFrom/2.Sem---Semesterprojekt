@@ -15,8 +15,8 @@ public class Ordre {
         this.betalingsform = betalingsform;
     }
 
-    public opretOrdreLinje(int antal, Produkt produkt, double pris) {
-
+    public OrdreLinje opretOrdreLinje(int antal, Produkt produkt, double pris) {
+        return null;
     }
 
     public void sletOrdrelinje(OrdreLinje ordrelinje) {
@@ -24,6 +24,6 @@ public class Ordre {
     }
 
     public double beregnPris() {
-
+        return 0;
     }
 }
