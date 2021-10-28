@@ -6,79 +6,79 @@ import java.util.ArrayList;
 
 public class Storage {
 
-    private ArrayList<Ordre> ordrer = new ArrayList<>();
-    private ArrayList<Prisliste> prislister = new ArrayList<>();
-    private ArrayList<Produkt> produkter = new ArrayList<>();
-    private ArrayList<Udlejning> udlejninger = new ArrayList<>();
-    private ArrayList<Arrangement> arrangementer = new ArrayList<>();
+    private static ArrayList<Ordre> ordrer = new ArrayList<>();
+    private static ArrayList<Prisliste> prislister = new ArrayList<>();
+    private static ArrayList<Produkt> produkter = new ArrayList<>();
+    private static ArrayList<Udlejning> udlejninger = new ArrayList<>();
+    private static ArrayList<Arrangement> arrangementer = new ArrayList<>();
 
     //---------------------------------------------------------------
 
-    public void addOrdre(Ordre ordre) {
+    public static void addOrdre(Ordre ordre) {
         ordrer.add(ordre);
     }
 
-    public void removeOrdre(Ordre ordre) {
+    public static void removeOrdre(Ordre ordre) {
         ordrer.remove(ordre);
     }
 
-    public ArrayList<Ordre> getOrdrer() {
+    public static ArrayList<Ordre> getOrdrer() {
         return new ArrayList<>(ordrer);
     }
 
     //------------------------------------------------------------------
 
-    public void addPrisliste(Prisliste prisliste) {
+    public static void addPrisliste(Prisliste prisliste) {
         prislister.add(prisliste);
     }
 
-    public void removePrisliste(Prisliste prisliste) {
+    public static void removePrisliste(Prisliste prisliste) {
         prislister.remove(prisliste);
     }
 
-    public ArrayList<Prisliste> getPrislister() {
+    public static ArrayList<Prisliste> getPrislister() {
         return new ArrayList<>(prislister);
     }
 
     //----------------------------------------------------------------------
 
-    public void addProdukt(Produkt produkt) {
+    public static void addProdukt(Produkt produkt) {
         produkter.add(produkt);
     }
 
-    public void removeProdukt(Produkt produkt) {
+    public static void removeProdukt(Produkt produkt) {
         produkter.remove(produkt);
     }
 
-    public ArrayList<Produkt> getProdukter() {
+    public static ArrayList<Produkt> getProdukter() {
         return new ArrayList<>(produkter);
     }
 
     //---------------------------------------------------------------------
 
-    public void addUdlejning(Udlejning udlejning) {
+    public static void addUdlejning(Udlejning udlejning) {
         udlejninger.add(udlejning);
     }
 
-    public void removeUdlejning(Udlejning udlejning) {
+    public static void removeUdlejning(Udlejning udlejning) {
         udlejninger.remove(udlejning);
     }
 
-    public ArrayList<Udlejning> getUdlejninger() {
+    public static ArrayList<Udlejning> getUdlejninger() {
         return new ArrayList<>(udlejninger);
     }
 
     //-----------------------------------------------------------------------
 
-    public void addArrangement(Arrangement arrangement) {
+    public static void addArrangement(Arrangement arrangement) {
         arrangementer.add(arrangement);
     }
 
-    public void removeArrangement(Arrangement arrangement) {
+    public static void removeArrangement(Arrangement arrangement) {
         arrangementer.remove(arrangement);
     }
 
-    public ArrayList<Arrangement> getArrangementer() {
+    public static ArrayList<Arrangement> getArrangementer() {
         return new ArrayList<>(arrangementer);
     }
 
