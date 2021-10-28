@@ -16,12 +16,10 @@ public class Ordre {
      * Initialiserer en ordre med ordreNr, prisliste og betalingsform
      * @param ordreNr ordreNr for ordren
      * @param prisliste prisliste for ordren
-     * @param betalingsform betalingsform for ordren
      */
-    public Ordre(int ordreNr, Prisliste prisliste, Betalingsform betalingsform) {
+    public Ordre(int ordreNr, Prisliste prisliste) {
         this.ordreNr = ordreNr;
         this.prisliste = prisliste;
-        this.betalingsform = betalingsform;
     }
 
     //getters

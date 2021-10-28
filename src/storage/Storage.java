@@ -12,6 +12,7 @@ public class Storage {
     private static ArrayList<Udlejning> udlejninger = new ArrayList<>();
     private static ArrayList<Arrangement> arrangementer = new ArrayList<>();
 
+
     //---------------------------------------------------------------
 
     public static void addOrdre(Ordre ordre) {
