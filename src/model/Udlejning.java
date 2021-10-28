@@ -1,17 +1,17 @@
 package model;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Udlejning {
+public class Udlejning extends Ordre{
     private LocalDate StartDato;
     private LocalDate SlutDato;
     private boolean erBetalt;
-    private int afleveredeFustager;
-    private int brugteFustager;
-    private ArrayList<UdlejningsProdukt> produkter = new ArrayList<>();
+    private ArrayList<OrdreLinje> brugteProdukter = new ArrayList<>();
 
-    public Udlejning (LocalDate StartDato, LocalDate Slutdato) {
+    public Udlejning (LocalDate StartDato, LocalDate Slutdato, int ordreNr, Prisliste prisliste) {
+        super(ordreNr, prisliste);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
     }
@@ -43,55 +43,33 @@ public class Udlejning {
         this.erBetalt = erBetalt;
     }
 
-    public int getAfleveredeFustager() {
-        return afleveredeFustager;
-    }
-
-    public void setAfleveredeFustager(int afleveredeFustager) {
-        this.afleveredeFustager = afleveredeFustager;
-    }
-
-    public int getBrugteFustager() {
-        return brugteFustager;
-    }
-
-    public void setBrugteFustager(int brugteFustager) {
-        this.brugteFustager = brugteFustager;
-    }
-
-    public ArrayList<UdlejningsProdukt> getProdukter() {
-        return produkter;
-    }
-
-    public void setProdukter(ArrayList<UdlejningsProdukt> produkter) {
-        this.produkter = produkter;
-    }
-
-    //Add/remove ArrayList Produkter
-    public void addProdukt(UdlejningsProdukt produkt){
-        if (!produkter.contains(produkt)) {
-            produkter.add(produkt);
-        }
-    }
-
-    public void removeProdukt(UdlejningsProdukt produkt) {
-        if (produkter.contains(produkt)) {
-            produkter.remove(produkt);
-        }
-    }
-
     //Metoder
-    public double beregnPris() {
-        return 0;
+    public OrdreLinje afleverProdukter(int antal, Pris pris) {
+        OrdreLinje OL = new OrdreLinje(antal, pris);
+        brugteProdukter.add(OL);
+        return OL;
     }
+
+    public double beregnUdlejningsPris() {
+        double vareReturPris = 0;
+        for (OrdreLinje OL:
+             brugteProdukter) {
+             vareReturPris += OL.samletPris();
+        }
+        return super.beregnPris() - vareReturPris;
+    }
+
 
     public double beregnPant() {
-        return 0;
+        ArrayList<OrdreLinje> ordreLinjer = getOrdrelinjer();
+        double samletPant = 0;
+        for (OrdreLinje OL:
+             ordreLinjer) {
+            samletPant += OL.getPris().getUdlejningsProdukt().getPant();
+            }
+        return samletPant;
     }
 
-    public void afleverProdukt (OrdreLinje ordreLinje, int antalBrugteProdukter) {
-
-    }
 
 }
 

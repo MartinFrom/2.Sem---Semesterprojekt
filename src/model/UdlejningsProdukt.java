@@ -8,8 +8,6 @@ public class UdlejningsProdukt extends Produkt{
         this.pant = pant;
     }
 
-    //getters og setters
-
     public double getPant() {
         return pant;
     }

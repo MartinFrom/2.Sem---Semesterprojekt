@@ -7,12 +7,11 @@ public class Ordre {
     private double samletPris;
     private Prisliste prisliste;
     private Betalingsform betalingsform;
-    private ArrayList<OrdreLinje> ordrelinjer;
+    private ArrayList<OrdreLinje> ordrelinjer = new ArrayList<>();
 
-    public Ordre(int ordreNr, Prisliste prisliste, Betalingsform betalingsform) {
+    public Ordre(int ordreNr, Prisliste prisliste) {
         this.ordreNr = ordreNr;
         this.prisliste = prisliste;
-        this.betalingsform = betalingsform;
     }
 
     // getters og setters

@@ -27,13 +27,8 @@ public class OrdreLinje {
         this.pris = pris;
     }
 
-    public double findProduktPris() {
-        return pris.getPris();
-    }
-
     public double samletPris() {
-        double oPris = 0;
-        oPris = findProduktPris() * antal;
+        double oPris = pris.getPris() * antal;
         return oPris;
     }
 }
