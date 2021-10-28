@@ -3,7 +3,6 @@ package model;
 public class OrdreLinje {
     private Pris pris;
     private int antal;
-    private double oPris;
 
     public OrdreLinje(int antal, Pris pris) {
         this.antal = antal;
@@ -11,13 +10,6 @@ public class OrdreLinje {
     }
 
     // getters og setters
-    public void setoPris(double pris) {
-        this.oPris = pris;
-    }
-
-    public double getoPris() {
-        return oPris;
-    }
 
     public int getAntal() {
         return antal;
@@ -40,6 +32,7 @@ public class OrdreLinje {
     }
 
     public double samletPris() {
+        double oPris = 0;
         oPris = findProduktPris() * antal;
         return oPris;
     }
