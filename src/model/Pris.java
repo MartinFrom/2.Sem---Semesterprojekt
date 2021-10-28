@@ -6,11 +6,18 @@ public class Pris {
     double pris;
     private Produkt produkt;
     private Prisliste prisliste;
+    private UdlejningsProdukt udlejningsProdukt;
 
 
     public Pris(double pris, Produkt produkt, Prisliste prisliste) {
         this.pris = pris;
         this.produkt = produkt;
+        this.prisliste = prisliste;
+    }
+
+    public Pris(double pris, UdlejningsProdukt udlejningsProdukt, Prisliste prisliste) {
+        this.pris = pris;
+        this.udlejningsProdukt = udlejningsProdukt;
         this.prisliste = prisliste;
     }
 
@@ -28,6 +35,10 @@ public class Pris {
         return prisliste;
     }
 
+    public UdlejningsProdukt getUdlejningsProdukt() {
+        return udlejningsProdukt;
+    }
+
     //setters
 
     public void setPris(double pris) {
@@ -42,4 +53,7 @@ public class Pris {
         this.prisliste = prisliste;
     }
 
+    public void setUdlejningsProdukt(UdlejningsProdukt udlejningsProdukt) {
+        this.udlejningsProdukt = udlejningsProdukt;
+    }
 }
