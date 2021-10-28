@@ -49,22 +49,30 @@ public class Ordre {
     }
 
     public ArrayList<OrdreLinje> getOrdrelinjer() {
-        return ordrelinjer;
+        return new ArrayList<>(ordrelinjer);
     }
 
     public void setOrdrelinjer(ArrayList<OrdreLinje> ordrelinjer) {
         this.ordrelinjer = ordrelinjer;
     }
 
-    public OrdreLinje opretOrdreLinje(int antal, Produkt produkt, double pris) {
-        return null;
+    public OrdreLinje opretOrdreLinje(int antal, Pris pris) {
+        OrdreLinje OL = new OrdreLinje(antal, pris);
+        ordrelinjer.add(OL);
+        return OL;
     }
 
     public void sletOrdrelinje(OrdreLinje ordrelinje) {
-
+        if (ordrelinjer.contains(ordrelinje)) {
+            ordrelinjer.remove(ordrelinje);
+        }
     }
 
     public double beregnPris() {
-        return 0;
+        double samletPris = 0;
+        for (OrdreLinje o : ordrelinjer) {
+            samletPris += o.samletPris();
+        }
+        return samletPris;
     }
 }
