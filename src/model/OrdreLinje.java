@@ -9,26 +9,43 @@ public class OrdreLinje {
         this.pris = pris;
     }
 
-    // getters og setters
+    //getters
 
     public int getAntal() {
         return antal;
-    }
-
-    public void setAntal(int antal) {
-        this.antal = antal;
     }
 
     public Pris getPris() {
         return pris;
     }
 
+    //setters
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
+
     public void setPris(Pris pris) {
         this.pris = pris;
     }
 
+    //-------------------------------------------------------------------------
+
+    /**
+     * Denne metode finder prisen på et enkelt produkt
+     * @return pris på enkelt produkt
+     */
+    public double findProduktPris() {
+        return pris.getPris();
+    }
+
+    /**
+     * Denne metode finder den samlede pris for ordrelinjen
+     * @return samlet pris på ordrelinjen
+     */
     public double samletPris() {
-        double oPris = pris.getPris() * antal;
+        double oPris = 0;
+        oPris = findProduktPris() * antal;
         return oPris;
     }
 }

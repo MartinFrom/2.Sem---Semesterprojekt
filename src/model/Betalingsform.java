@@ -1,9 +1,9 @@
 package model;
 
 public class Betalingsform {
-    int kontant;
-    int kort;
-    int mobilepay;
+    private int kontant;
+    private int kort;
+    private int mobilepay;
 
     public Betalingsform(int kontant, int kort, int mobilepay, Ordre ordre) {
         this.kontant = kontant;
