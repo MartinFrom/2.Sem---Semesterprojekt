@@ -20,7 +20,7 @@ public class Prisliste {
     }
 
     public ArrayList<Pris> getPrisliste() {
-        return priser;
+        return new ArrayList<>(priser);
     }
 
     public void setPrisliste(ArrayList<Pris> prisliste) {

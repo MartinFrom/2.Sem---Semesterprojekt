@@ -7,7 +7,6 @@ public class Pris {
     private Produkt produkt;
     private Prisliste prisliste;
 
-    private ArrayList<Produkt> produkter = new ArrayList<>();
 
     public Pris(double pris, Produkt produkt, Prisliste prisliste) {
         this.pris = pris;
@@ -40,17 +39,4 @@ public class Pris {
         this.prisliste = prisliste;
     }
 
-    public ArrayList<Produkt> getProdukter() {
-        return produkter;
-    }
-
-    public void setProdukter(ArrayList<Produkt> produkter) {
-        this.produkter = produkter;
-    }
-
-    public void addProdukt(Produkt produkt) {
-        if (!produkter.contains(produkt)) {
-            produkter.add(produkt);
-        }
-    }
 }
