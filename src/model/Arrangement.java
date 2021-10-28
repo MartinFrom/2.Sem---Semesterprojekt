@@ -12,7 +12,7 @@ public class Arrangement extends Prisliste {
     private int tilmeldte;
 
     /**
-     * Initialiserer en ny prisliste for arrangement
+     * Initialiserer et arrangement med navn, dato, antal pladser og antal tilmeldte
      * @param navn navnet på arrangement
      * @param dato dato for arrangement
      * @param pladser antal pladser for arrangement
@@ -25,7 +25,7 @@ public class Arrangement extends Prisliste {
         this.tilmeldte = tilmeldte;
     }
 
-    // getters og setters
+    //getters
 
     /**
      * Returnerer dato
@@ -37,17 +37,8 @@ public class Arrangement extends Prisliste {
     }
 
     /**
-     * Registrerer en dato for objektet arrangement
-     * @param dato ny dato for arrangement
-     * Pre: arrangement objekt eksisterer
-     */
-    public void setDato(LocalDate dato) {
-        this.dato = dato;
-    }
-
-    /**
      * Returnerer antallet af pladser til arrangementet
-     * @return pladser på arrangement
+     * @return antal pladser på arrangement
      * Pre: arrangement objekt eksisterer
      */
     public int getPladser() {
@@ -55,8 +46,28 @@ public class Arrangement extends Prisliste {
     }
 
     /**
+     * Returnerer antal tilmeldte for arrangement
+     * @return antal tilmeldte på arrangement
+     * Pre: arrangement objekt eksisterer
+     */
+    public int getTilmeldte() {
+        return tilmeldte;
+    }
+
+    //setters
+
+    /**
+     * Registrerer en dato for objektet arrangement
+     * @param dato dato for arrangement
+     * Pre: arrangement objekt eksisterer
+     */
+    public void setDato(LocalDate dato) {
+        this.dato = dato;
+    }
+
+    /**
      * Registrerer et antal pladser for arrangement
-     * @param pladser nyt antal pladser for arrangement
+     * @param pladser antal pladser for arrangement
      * Pre: arrangement objekt eksisterer
      */
     public void setPladser(int pladser) {
@@ -64,17 +75,8 @@ public class Arrangement extends Prisliste {
     }
 
     /**
-     * Returnerer antal tilmeldte for arrangement
-     * @return tilmeldte på arrangement
-     * Pre: arrangement objekt eksisterer
-     */
-    public int getTilmeldte() {
-        return tilmeldte;
-    }
-
-    /**
      * Registrerer et antal tilmeldte for arrangement
-     * @param tilmeldte nyt antal tilmelde på arrangement
+     * @param tilmeldte antal tilmeldte på arrangement
      * Pre: arrangement objekt eksisterer
      */
     public void setTilmeldte(int tilmeldte) {
