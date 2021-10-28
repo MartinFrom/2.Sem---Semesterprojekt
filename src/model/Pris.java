@@ -14,25 +14,28 @@ public class Pris {
         this.prisliste = prisliste;
     }
 
-    // getters og setters
+    //getters
+
     public double getPris() {
         return pris;
-    }
-
-    public void setPris(double pris) {
-        this.pris = pris;
     }
 
     public Produkt getProdukt() {
         return produkt;
     }
 
-    public void setProdukt(Produkt produkt) {
-        this.produkt = produkt;
-    }
-
     public Prisliste getPrisliste() {
         return prisliste;
+    }
+
+    //setters
+
+    public void setPris(double pris) {
+        this.pris = pris;
+    }
+
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
     }
 
     public void setPrisliste(Prisliste prisliste) {

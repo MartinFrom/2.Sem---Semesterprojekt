@@ -30,18 +30,21 @@ public class ProduktGruppe {
         }
     }
     //---------------------------------------------------------------------
-    //getters og setters
+
+    //getters
 
     public String getNavn() {
         return navn;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
+    public ArrayList<Produkt> getProdukter() {
+        return new ArrayList<>(produkter);
     }
 
-    public ArrayList<Produkt> getProdukter() {
-        return produkter;
+    // setters
+
+    public void setNavn(String navn) {
+        this.navn = navn;
     }
 
     public void setProdukter(ArrayList<Produkt> produkter) {

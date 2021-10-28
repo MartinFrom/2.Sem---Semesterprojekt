@@ -127,7 +127,7 @@ public class Ordre {
      * @return ordrelinje med antal og pris
      * Pre: Produkter eksisterer, pris klassen eksisterer
      */
-    public OrdreLinje opretOrdreLinje(int antal, Pris pris) {
+    public OrdreLinje createOrdreLinje(int antal, Pris pris) {
         OrdreLinje OL = new OrdreLinje(antal, pris);
         ordrelinjer.add(OL);
         return OL;
@@ -138,7 +138,7 @@ public class Ordre {
      * @param ordrelinje ordrelinje
      * Pre: Ordrelinje eksisterer
      */
-    public void sletOrdrelinje(OrdreLinje ordrelinje) {
+    public void removeOrdrelinje(OrdreLinje ordrelinje) {
         if (ordrelinjer.contains(ordrelinje)) {
             ordrelinjer.remove(ordrelinje);
         }
