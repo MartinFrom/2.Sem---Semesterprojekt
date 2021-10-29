@@ -68,6 +68,8 @@ public class Controller {
         return udlejning;
     }
 
+    public static void initStorage() {
 
+    }
 
 }
