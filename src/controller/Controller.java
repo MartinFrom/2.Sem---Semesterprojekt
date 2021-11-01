@@ -4,6 +4,7 @@ import model.*;
 import storage.Storage;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -66,6 +67,11 @@ public class Controller {
         Udlejning udlejning = new Udlejning(StartDato, Slutdato, ordreNr, prisliste);
         Storage.addUdlejning(udlejning);
         return udlejning;
+    }
+
+    // Getters
+    public static ArrayList<ProduktGruppe> getProduktGrupper () {
+        return new ArrayList<ProduktGruppe>(Storage.getProduktgrupper());
     }
 
     public static void initStorage() {

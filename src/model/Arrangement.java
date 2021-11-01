@@ -16,13 +16,11 @@ public class Arrangement extends Prisliste {
      * @param navn navnet på arrangement
      * @param dato dato for arrangement
      * @param pladser antal pladser for arrangement
-     * @param tilmeldte antal tilmeldte for arrangement
      */
-    public Arrangement(String navn, LocalDate dato, int pladser, int tilmeldte) {
+    public Arrangement(String navn, LocalDate dato, int pladser) {
         super(navn);
         this.dato = dato;
         this.pladser = pladser;
-        this.tilmeldte = tilmeldte;
     }
 
     //getters
