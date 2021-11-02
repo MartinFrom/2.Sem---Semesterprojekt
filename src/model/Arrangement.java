@@ -55,8 +55,6 @@ public class Arrangement extends Prisliste {
         return tilmeldte;
     }
 
-
-
     //setters
 
     /**

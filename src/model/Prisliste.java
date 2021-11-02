@@ -42,7 +42,6 @@ public class Prisliste {
         Pris pris = new Pris(varePris, produkt, this);
         priser.add(pris);
         return pris;
-
     }
 
     public void removePris(Pris pris) {

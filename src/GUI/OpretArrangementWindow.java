@@ -18,6 +18,7 @@ import model.Arrangement;
 import model.Pris;
 import model.Produkt;
 import model.ProduktGruppe;
+import storage.Storage;
 
 import java.lang.reflect.Array;
 import java.time.LocalDate;
@@ -33,6 +34,7 @@ public class OpretArrangementWindow extends Stage {
     private ListView<Pris> lwPriser;
 
     private Arrangement arr;
+    private Pris pris;
 
     public OpretArrangementWindow(String title) {
         initStyle(StageStyle.UTILITY);
@@ -111,8 +113,8 @@ public class OpretArrangementWindow extends Stage {
         btnNyPris.setVisible(false);
         btnNyPris.setPrefHeight(20);
         btnNyPris.setOnAction(e -> {
-            arr.createPris(lwProdukt.getSelectionModel().getSelectedItem(), parseInt(txfNyPris.getText()));
-            lwPriser.getItems().setAll(arr.getPrisliste());
+            pris = Controller.createPris(arr,lwProdukt.getSelectionModel().getSelectedItem(), parseInt(txfNyPris.getText()));
+            lwPriser.getItems().add(pris);
         });
 
         // Viser Gemte Priser på ListView
@@ -132,7 +134,8 @@ public class OpretArrangementWindow extends Stage {
         pane.add(btnGem,0,4);
         btnGem.setVisible(false);
         btnGem.setOnAction(e -> {
-
+            Storage.addPrisliste(arr);
+            close();
         });
 
         // Opretter Arrangement
