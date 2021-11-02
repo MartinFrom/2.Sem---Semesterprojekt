@@ -15,4 +15,9 @@ public class UdlejningsProdukt extends Produkt{
     public void setPant(double pant) {
         this.pant = pant;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Pant: " + getPant();
+    }
 }

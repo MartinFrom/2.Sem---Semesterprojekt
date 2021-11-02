@@ -6,11 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.w3c.dom.Text;
 
+import javax.swing.*;
 import java.util.List;
 
 public class OpretOrdreWindow extends Stage {
@@ -88,16 +90,13 @@ public class OpretOrdreWindow extends Stage {
         lwOrdreLinjer.setPrefHeight(500);
         // TODO
 
-        CheckBox cbErBetalt = new CheckBox("Er betalt");
-        pane.add(cbErBetalt,4,7);
-
         Button btnRegistrer = new Button("Registrer");
-        pane.add(btnRegistrer,5,7);
+        pane.add(btnRegistrer,0,7);
         btnRegistrer.setPrefWidth(100);
 
         cbbPrisliste = new ComboBox();
         pane.add(cbbPrisliste,0,0);
-        cbbPrisliste.getItems().setAll(Controller.getPrisListe());
+        cbbPrisliste.getItems().setAll(Controller.getPrisLister());
         cbbPrisliste.setPromptText("Vælg Prisliste");
     }
 }

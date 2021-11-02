@@ -28,4 +28,9 @@ public class Produkt {
     public void setProduktnummer(int produktnummer) {
         this.produktnummer = produktnummer;
     }
+
+    @Override
+    public String toString() {
+        return "ProduktNr: " + getProduktnummer() + " | Navn: " + getNavn();
+    }
 }

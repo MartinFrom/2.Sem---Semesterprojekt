@@ -48,4 +48,9 @@ public class Prisliste {
     public void removePris(Pris pris) {
         priser.remove(pris);
     }
+
+    @Override
+    public String toString() {
+        return "Navn: " + getNavn();
+    }
 }

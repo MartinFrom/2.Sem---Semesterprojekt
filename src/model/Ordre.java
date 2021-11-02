@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Ordre {
     private int ordreNr;
     private double samletPris;
+    private boolean erBetalt;
     private Prisliste prisliste;
     private Betalingsform betalingsform;
     private ArrayList<OrdreLinje> ordrelinjer;
@@ -69,7 +70,16 @@ public class Ordre {
         return new ArrayList<>(ordrelinjer);
     }
 
+    public boolean isErBetalt() {
+        return erBetalt;
+    }
+
     //setters
+
+
+    public void setErBetalt(boolean erBetalt) {
+        this.erBetalt = erBetalt;
+    }
 
     /**
      * Registerer ordreNr for ordren
@@ -148,10 +158,17 @@ public class Ordre {
      * Pre: ordre objekt eksisterer
      */
     public double beregnPris() {
-        double samletPris = 0;
+        this.samletPris = 0;
         for (OrdreLinje o : ordrelinjer) {
             samletPris += o.samletPris();
         }
         return samletPris;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Nr:" + getOrdreNr() + " | Type: Salg" + " | Pris: " + getSamletPris() + " | Betalt: Ja" + " | Betalingsform: " + getBetalingsform();
     }
 }

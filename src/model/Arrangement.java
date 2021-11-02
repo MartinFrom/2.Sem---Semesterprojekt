@@ -81,4 +81,8 @@ public class Arrangement extends Prisliste {
         this.tilmeldte = tilmeldte;
     }
 
- }
+    @Override
+    public String toString() {
+        return "Navn: " + getNavn() + "| Antal pladser: " + getPladser() + "´| Dato:" + getDato();
+    }
+}

@@ -2,6 +2,7 @@ package GUI;
 
 import controller.Controller;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,15 +10,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.Betalingsform;
+import model.Ordre;
+import model.OrdreLinje;
 
 public class MainApp extends Application{
     private int mainWindowwidth = 1000;
     private int mainWindowheight = 500;
 
-    private ListView lwOrdre;
-    private ListView lwBetalingsform;
-    private ListView lwOrdreLinjer;
+    private ListView<Ordre> lwOrdre;
+    private ListView<Betalingsform> lwBetalingsform;
+    private ListView<OrdreLinje> lwOrdreLinjer;
 
 
     public void init() {
@@ -34,8 +39,8 @@ public class MainApp extends Application{
         bPane.setCenter(gPane);
         this.initContent(gPane);
 
-
         Scene scene = new Scene(bPane);
+
         stage.setScene(scene);
         stage.show();
     }
@@ -91,7 +96,7 @@ public class MainApp extends Application{
         btnBetaling.setPrefHeight(75);
         btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
-
+            lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
         });
 
         // ListView Ordre/Udlejninger
@@ -103,7 +108,11 @@ public class MainApp extends Application{
         pane.add(lwOrdre,0,4,2,2);
         lwOrdre.setPrefHeight(150);
         lwOrdre.setPrefWidth(500);
-        // TODO
+        lwOrdre.getItems().setAll(Controller.getOrdrer());
+
+        // ListView Ordre Listener
+        ChangeListener<Ordre> ordreChangeListener = (ov, oldOrdre, newOrdre) -> this.selectedOrdreChanged();
+        lwOrdre.getSelectionModel().selectedItemProperty().addListener(ordreChangeListener);
 
         Label lblBetaling = new Label("Betalingsform:");
         pane.add(lblBetaling,2,3);
@@ -122,5 +131,14 @@ public class MainApp extends Application{
         lwOrdreLinjer.setPrefWidth(200);
         lwOrdreLinjer.setPrefHeight(500);
         // TODO
+
+
+    }
+    // ListenerChanged
+    private void selectedOrdreChanged() {
+        Ordre ordre = lwOrdre.getSelectionModel().getSelectedItem();
+        if (ordre != null) {
+            lwOrdreLinjer.getItems().setAll(ordre.getOrdrelinjer());
+        }
     }
 }

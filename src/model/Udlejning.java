@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Udlejning extends Ordre{
     private LocalDate StartDato;
     private LocalDate SlutDato;
-    private boolean erBetalt;
     private ArrayList<OrdreLinje> brugteProdukter = new ArrayList<>();
 
     public Udlejning (LocalDate StartDato, LocalDate Slutdato, int ordreNr, Prisliste prisliste) {
@@ -33,14 +32,6 @@ public class Udlejning extends Ordre{
 
     public void setSlutDato(LocalDate slutDato) {
         SlutDato = slutDato;
-    }
-
-    public boolean isErBetalt() {
-        return erBetalt;
-    }
-
-    public void setErBetalt(boolean erBetalt) {
-        this.erBetalt = erBetalt;
     }
 
     //Metoder
@@ -70,7 +61,10 @@ public class Udlejning extends Ordre{
         return samletPant;
     }
 
-
+    @Override
+    public String toString() {
+        return "Nr:" + super.getOrdreNr() + " | Type: Udlejning" + " | Pris: " + super.getSamletPris() + " | Betalt: " + isErBetalt() + " | Betalingsform: " + super.getBetalingsform();
+    }
 }
 
 
