@@ -50,4 +50,9 @@ public class ProduktGruppe {
     public void setProdukter(ArrayList<Produkt> produkter) {
         this.produkter = produkter;
     }
+
+    @Override
+    public String toString() {
+        return "Kategori: " + getNavn();
+    }
 }

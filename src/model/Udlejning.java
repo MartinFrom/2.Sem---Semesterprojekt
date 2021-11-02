@@ -70,7 +70,10 @@ public class Udlejning extends Ordre{
         return samletPant;
     }
 
-
+    @Override
+    public String toString() {
+        return "Nr:" + super.getOrdreNr() + " | Type: Udlejning" + " | Pris: " + super.getSamletPris() + " | Betalt: " + isErBetalt() + " | Betalingsform: " + super.getBetalingsform();
+    }
 }
 
 

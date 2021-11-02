@@ -148,10 +148,15 @@ public class Ordre {
      * Pre: ordre objekt eksisterer
      */
     public double beregnPris() {
-        double samletPris = 0;
+        this.samletPris = 0;
         for (OrdreLinje o : ordrelinjer) {
             samletPris += o.samletPris();
         }
         return samletPris;
+    }
+
+    @Override
+    public String toString() {
+        return "Nr:" + getOrdreNr() + " | Type: Salg" + " | Pris: " + getSamletPris() + " | Betalt: Ja" + " | Betalingsform: " + getBetalingsform();
     }
 }

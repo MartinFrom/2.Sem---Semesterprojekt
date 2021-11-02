@@ -48,4 +48,9 @@ public class OrdreLinje {
         oPris = findProduktPris() * antal;
         return oPris;
     }
+
+    @Override
+    public String toString() {
+        return "Vare: " + pris.getProdukt() + " | Antal: " + getAntal() + " | Pris: " + samletPris();
+    }
 }

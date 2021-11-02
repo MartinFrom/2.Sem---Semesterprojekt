@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Pris {
     double pris;
-    private Produkt produkt;
+    private Produkt produkt = null;
     private Prisliste prisliste;
-    private UdlejningsProdukt udlejningsProdukt;
+    private UdlejningsProdukt udlejningsProdukt = null;
 
 
     public Pris(double pris, Produkt produkt, Prisliste prisliste) {
@@ -55,5 +55,13 @@ public class Pris {
 
     public void setUdlejningsProdukt(UdlejningsProdukt udlejningsProdukt) {
         this.udlejningsProdukt = udlejningsProdukt;
+    }
+
+    @Override
+    public String toString() {
+        if (udlejningsProdukt == null) {
+            return "Vare: " + getProdukt() + " | Pris: " + getPris();
+        } else
+            return "Vare: " + getUdlejningsProdukt() + " | Pris: " + getPris();
     }
 }

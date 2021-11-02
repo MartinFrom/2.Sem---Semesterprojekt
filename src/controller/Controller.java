@@ -85,8 +85,12 @@ public class Controller {
         return new ArrayList<ProduktGruppe>(Storage.getProduktgrupper());
     }
 
-    public static ArrayList<Prisliste> getPrisListe () {
+    public static ArrayList<Prisliste> getPrisLister () {
         return new ArrayList<Prisliste>(Storage.getPrislister());
+    }
+
+    public static ArrayList<Ordre> getOrdrer() {
+        return new ArrayList<Ordre>(Storage.getOrdrer());
     }
 
     public static void initStorage() {
