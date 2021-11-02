@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Arrangement;
 import model.Pris;
 import model.Produkt;
 import model.ProduktGruppe;
@@ -23,11 +24,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 public class OpretArrangementWindow extends Stage {
 
     private ListView<ProduktGruppe> lwProduktGruppe;
     private ListView<Produkt> lwProdukt;
     private ListView<Pris> lwPriser;
+
+    private Arrangement arr;
 
     public OpretArrangementWindow(String title) {
         initStyle(StageStyle.UTILITY);
@@ -66,6 +71,8 @@ public class OpretArrangementWindow extends Stage {
         //ListView
         lwProduktGruppe = new ListView<>();
         pane.add(lwProduktGruppe, 0, 3);
+        lblProduktGruppe.setVisible(false);
+        lwProduktGruppe.setVisible(false);
         lwProduktGruppe.setPrefHeight(500);
         lwProduktGruppe.setPrefWidth(200);
         lwProduktGruppe.getItems().setAll(Controller.getProduktGrupper());
@@ -81,6 +88,8 @@ public class OpretArrangementWindow extends Stage {
         // ListView
         lwProdukt = new ListView<>();
         pane.add(lwProdukt, 1, 3,2,1);
+        lblProdukt.setVisible(false);
+        lwProdukt.setVisible(false);
         lwProdukt.setPrefWidth(350);
         lwProdukt.setPrefHeight(500);
 
@@ -93,9 +102,13 @@ public class OpretArrangementWindow extends Stage {
         txfNyPris.setPrefWidth(50);
         txfNyPris.setPromptText("");
 
+        lblNyPris.setVisible(false);
+        txfNyPris.setVisible(false);
+
         // Skal gemme den nye pris på lwPriser
         Button btnNyPris = new Button("Tilføj til Arrangement");
         pane.add(btnNyPris,3,4);
+        btnNyPris.setVisible(false);
         btnNyPris.setPrefHeight(20);
         btnNyPris.setOnAction(e -> {
 
@@ -107,6 +120,8 @@ public class OpretArrangementWindow extends Stage {
         // ListView
         lwPriser = new ListView<>();
         pane.add(lwPriser,3,3);
+        lblPriser.setVisible(false);
+        lwPriser.setVisible(false);
         lwPriser.setPrefHeight(500);
         lwPriser.setPrefWidth(350);
 
@@ -114,9 +129,29 @@ public class OpretArrangementWindow extends Stage {
         // Gemmer data og lukker vinduet
         Button btnGem = new Button("Gem");
         pane.add(btnGem,0,4);
+        btnGem.setVisible(false);
         btnGem.setOnAction(e -> {
 
         });
+
+        // Opretter Arrangement
+        Button btnOpretArrangement = new Button("Videre");
+        pane.add(btnOpretArrangement,3,1);
+        btnOpretArrangement.setOnAction(e -> {
+            arr = Controller.createArrangement(txfNavn.getText(), DatePicker.getValue(), parseInt(txfPladser.getText()));
+
+            lblProduktGruppe.setVisible(true);
+            lwProduktGruppe.setVisible(true);
+            lblProdukt.setVisible(true);
+            lwProdukt.setVisible(true);
+            lblNyPris.setVisible(true);
+            txfNyPris.setVisible(true);
+            btnNyPris.setVisible(true);
+            lblPriser.setVisible(true);
+            lwPriser.setVisible(true);
+            btnGem.setVisible(true);
+        });
+
     }
 
     // ListenerChanged

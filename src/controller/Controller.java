@@ -51,6 +51,16 @@ public class Controller {
         Storage.removePrisliste(prisliste);
     }
 
+    public static Arrangement createArrangement(String navn, LocalDate dato, int pladser) {
+        Arrangement arrangement = new Arrangement(navn, dato, pladser);
+        Storage.addArrangement(arrangement);
+        return arrangement;
+    }
+
+    public static void removeArrangement(Arrangement arrangement) {
+        Storage.removeArrangement(arrangement);
+    }
+
     // Ordre
     public static Ordre createOrdre(int ordreNr, Prisliste prisliste) {
         Ordre ordre = new Ordre(ordreNr, prisliste);
