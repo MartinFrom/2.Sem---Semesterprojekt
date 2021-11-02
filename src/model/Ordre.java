@@ -11,7 +11,7 @@ public class Ordre {
     private boolean erBetalt;
     private Prisliste prisliste;
     private Betalingsform betalingsform;
-    private ArrayList<OrdreLinje> ordrelinjer;
+    private ArrayList<OrdreLinje> ordrelinjer = new ArrayList<>();
 
     /**
      * Initialiserer en ordre med ordreNr, prisliste og betalingsform

@@ -253,6 +253,7 @@ public class Controller {
         Pris butikLiquorOfAarhus = Controller.createPris(butik, liquorOfAarhus, 175.0);
         Pris butikLyngGin50cl = Controller.createPris(butik, lyngGin50cl, 350.0);
 
+
         //Priser - butik - fustage
         Pris butikKlosterbrygFustage = Controller.createPris(butik, klosterbryg20L, 775.0);
         Pris butikJazzClasicFustage = Controller.createPris(butik, jazzClasic25L, 625.0);
@@ -375,11 +376,18 @@ public class Controller {
         ordre1.createOrdreLinje(1, butikWhisky45Procent);
         ordre1.createOrdreLinje(2, butikTrækasse6øl);
 
-
         Ordre ordre2 = Controller.createOrdre(2, fredagsBar);
         ordre2.createOrdreLinje(3, fredagsBarBlondieFlaske);
         ordre2.createOrdreLinje(2, fredagsBar2WhiskyGlas);
         ordre2.createOrdreLinje(1, fredagsBarPolo);
+
+        //Udlejning
+        Udlejning udlejning1 = Controller.createUdlejning(LocalDate.of(2021,11,01),
+                               LocalDate.of(2021,11,10), 1, butik);
+        udlejning1.createOrdreLinje(1, butikImperialStoutFustage);
+        udlejning1.createOrdreLinje(5, butikJulebrygFustage);
+        udlejning1.createOrdreLinje(1, butik10kgKulsyre);
+
 
 
 
