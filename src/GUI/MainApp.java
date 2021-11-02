@@ -138,6 +138,7 @@ public class MainApp extends Application{
     private void selectedOrdreChanged() {
         Ordre ordre = lwOrdre.getSelectionModel().getSelectedItem();
         if (ordre != null) {
+            lwOrdreLinjer.getItems().clear();
             lwOrdreLinjer.getItems().setAll(ordre.getOrdrelinjer());
         }
     }

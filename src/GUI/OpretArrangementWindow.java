@@ -112,7 +112,7 @@ public class OpretArrangementWindow extends Stage {
         btnNyPris.setPrefHeight(20);
         btnNyPris.setOnAction(e -> {
             arr.createPris(lwProdukt.getSelectionModel().getSelectedItem(), parseInt(txfNyPris.getText()));
-
+            lwPriser.getItems().setAll(arr.getPrisliste());
         });
 
         // Viser Gemte Priser på ListView
