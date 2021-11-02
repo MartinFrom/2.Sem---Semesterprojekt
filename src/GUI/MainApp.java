@@ -80,7 +80,8 @@ public class MainApp extends Application{
         btnOpretProduktGruppe.setPrefWidth(150);
         btnOpretProduktGruppe.setAlignment(Pos.CENTER_LEFT);
         btnOpretProduktGruppe.setOnAction(e -> {
-
+            OpretProduktGruppeWindow opretPGWindow = new OpretProduktGruppeWindow("ProduktGruppe");
+            opretPGWindow.showAndWait();
         });
 
         Button btnOpretProdukt = new Button ("Opret Produkt");
