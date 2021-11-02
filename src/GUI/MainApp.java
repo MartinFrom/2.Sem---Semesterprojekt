@@ -45,12 +45,17 @@ public class MainApp extends Application{
         // Buttons
         Button btnOpretUdlejning = new Button("Opret Udlejning");
         pane.add(btnOpretUdlejning, 0,0);
+        btnOpretUdlejning.setPrefWidth(150);
+        btnOpretUdlejning.setAlignment(Pos.CENTER_LEFT);
         btnOpretUdlejning.setOnAction(e -> {
-
+            OpretUdlejningWindow opretUdlWin = new OpretUdlejningWindow("Udlejning");
+            opretUdlWin.showAndWait();
         });
 
         Button btnOpretArrangement = new Button("Opret Arrangement");
         pane.add(btnOpretArrangement, 1, 0);
+        btnOpretArrangement.setPrefWidth(150);
+        btnOpretArrangement.setAlignment(Pos.CENTER_LEFT);
         btnOpretArrangement.setOnAction(e -> {
             OpretArrangementWindow opretArrWin = new OpretArrangementWindow("Opret Arrangement");
             opretArrWin.showAndWait();
@@ -58,6 +63,8 @@ public class MainApp extends Application{
 
         Button btnOpretOrdre = new Button("Opret Ordre");
         pane.add(btnOpretOrdre,1,1);
+        btnOpretOrdre.setPrefWidth(150);
+        btnOpretOrdre.setAlignment(Pos.CENTER_LEFT);
         btnOpretOrdre.setOnAction(e -> {
             OpretOrdreWindow opretOrdWin = new OpretOrdreWindow("Ordre");
             opretOrdWin.showAndWait();
@@ -65,12 +72,16 @@ public class MainApp extends Application{
 
         Button btnOpretProduktGruppe = new Button ("Opret Produktgruppe");
         pane.add(btnOpretProduktGruppe, 0,1);
+        btnOpretProduktGruppe.setPrefWidth(150);
+        btnOpretProduktGruppe.setAlignment(Pos.CENTER_LEFT);
         btnOpretProduktGruppe.setOnAction(e -> {
 
         });
 
         Button btnOpretProdukt = new Button ("Opret Produkt");
         pane.add(btnOpretProdukt, 0,2);
+        btnOpretProdukt.setPrefWidth(150);
+        btnOpretProdukt.setAlignment(Pos.CENTER_LEFT);
         btnOpretProdukt.setOnAction(e -> {
 
         });

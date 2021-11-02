@@ -1,7 +1,5 @@
 package GUI;
 
-import controller.Controller;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -11,20 +9,19 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.w3c.dom.Text;
 
-import java.util.List;
+import java.time.LocalDate;
 
-public class OpretOrdreWindow extends Stage {
+public class OpretUdlejningWindow extends Stage {
 
-    private ListView lwProduktGruppe;
-    private ListView lwProdukt;
+    private ListView lwUdlejningsProdukt;
     private ListView lwBetalingsform;
     private ListView lwOrdreLinjer;
 
     private TextField txfAntal;
+    private TextField txfPris;
+    private TextField txfPant;
 
-    private ComboBox cbbPrisliste;
-
-    public OpretOrdreWindow(String title) {
+    public OpretUdlejningWindow(String title) {
         initStyle(StageStyle.UTILITY);
         initModality(Modality.APPLICATION_MODAL);
         setResizable(false);
@@ -40,64 +37,64 @@ public class OpretOrdreWindow extends Stage {
     }
 
     private void initContent(GridPane pane) {
-        // Produktgruppe
-        Label lblProduktGruppe = new Label("Produktgruppe:");
-        pane.add(lblProduktGruppe, 0, 1);
-        //ListView
-        lwProduktGruppe = new ListView<>();
-        pane.add(lwProduktGruppe, 0, 2,1,5);
-        lwProduktGruppe.setPrefHeight(500);
-        lwProduktGruppe.setPrefWidth(200);
-        lwProduktGruppe.getItems().setAll(Controller.getProduktGrupper());
+        // Kalender
+        DatePicker DatePicker = new DatePicker();
+        DatePicker.setValue(LocalDate.now());
+        pane.add(DatePicker, 0, 0);
 
-        // Produkt
-        Label lblProdukt = new Label("Produkter:");
-        pane.add(lblProdukt, 1, 1);
+        // UdlejningsProdukter
+        Label lblUdlejningsProdukter = new Label("Udlejningsprodukter");
+        pane.add(lblUdlejningsProdukter,0,1);
         // ListView
-        lwProdukt = new ListView<>();
-        pane.add(lwProdukt, 1, 2,1,5);
-        lwProdukt.setPrefWidth(350);
-        lwProdukt.setPrefHeight(500);
+        lwUdlejningsProdukt = new ListView<>();
+        pane.add(lwUdlejningsProdukt,0,2,1,5);
 
         // Select antal og tilføj
         Label lblAntal = new Label("Antal:");
-        pane.add(lblAntal,2,2);
+        pane.add(lblAntal,1,1);
 
         txfAntal = new TextField();
-        pane.add(txfAntal,2,3);
+        pane.add(txfAntal,1,2);
 
         Button btnTilføjProdukt = new Button("Tilføj Produkt");
-        pane.add(btnTilføjProdukt,2,4);
+        pane.add(btnTilføjProdukt,1,3);
         btnTilføjProdukt.setPrefWidth(150);
         btnTilføjProdukt.setPrefHeight(100);
 
         Label lblBetaling = new Label("Betalingsform:");
-        pane.add(lblBetaling,2,5);
+        pane.add(lblBetaling,1,4);
         // ListView
         lwBetalingsform = new ListView<>();
-        pane.add(lwBetalingsform,2,6);
-        // TODO
+        pane.add(lwBetalingsform,1,5);
 
         // ListView Kurv
         Label lblOrdreLinjer = new Label("Kurv:");
-        pane.add(lblOrdreLinjer,4,1);
+        pane.add(lblOrdreLinjer,2,1);
         // ListView
         lwOrdreLinjer = new ListView<>();
-        pane.add(lwOrdreLinjer,4,2,2,5);
+        pane.add(lwOrdreLinjer,2,2,2,5);
         lwOrdreLinjer.setPrefWidth(350);
         lwOrdreLinjer.setPrefHeight(500);
         // TODO
 
         CheckBox cbErBetalt = new CheckBox("Er betalt");
-        pane.add(cbErBetalt,4,7);
+        pane.add(cbErBetalt,2,7);
 
-        Button btnRegistrer = new Button("Registrer");
-        pane.add(btnRegistrer,5,7);
+        Button btnRegistrer = new Button("Registrer Udlejning");
+        pane.add(btnRegistrer,3,7);
         btnRegistrer.setPrefWidth(100);
 
-        cbbPrisliste = new ComboBox();
-        pane.add(cbbPrisliste,0,0);
-        cbbPrisliste.getItems().setAll(Controller.getPrisListe());
-        cbbPrisliste.setPromptText("Vælg Prisliste");
+        // Pris og pant
+        Label lblPris = new Label ("Samlet Pris:");
+        pane.add(lblPris,4,2);
+
+        Label lblPant = new Label ("Samlet Pant:");
+        pane.add(lblPant,4,3);
+
+        txfPris = new TextField();
+        pane.add(txfPris,5,2);
+
+        txfPant = new TextField();
+        pane.add(txfPant,5,3);
     }
 }
