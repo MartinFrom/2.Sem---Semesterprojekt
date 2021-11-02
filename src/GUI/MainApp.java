@@ -96,7 +96,7 @@ public class MainApp extends Application{
         btnBetaling.setPrefHeight(75);
         btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
-
+            lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
         });
 
         // ListView Ordre/Udlejninger

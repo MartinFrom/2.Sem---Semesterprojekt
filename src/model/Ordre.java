@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Ordre {
     private int ordreNr;
     private double samletPris;
+    private boolean erBetalt;
     private Prisliste prisliste;
     private Betalingsform betalingsform;
     private ArrayList<OrdreLinje> ordrelinjer;
@@ -69,7 +70,16 @@ public class Ordre {
         return new ArrayList<>(ordrelinjer);
     }
 
+    public boolean isErBetalt() {
+        return erBetalt;
+    }
+
     //setters
+
+
+    public void setErBetalt(boolean erBetalt) {
+        this.erBetalt = erBetalt;
+    }
 
     /**
      * Registerer ordreNr for ordren
@@ -154,6 +164,8 @@ public class Ordre {
         }
         return samletPris;
     }
+
+
 
     @Override
     public String toString() {
