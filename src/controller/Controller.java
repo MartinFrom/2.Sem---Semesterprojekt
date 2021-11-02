@@ -99,7 +99,7 @@ public class Controller {
         return new ArrayList<Ordre>(Storage.getOrdrer());
     }
 
-    public static ArrayList<Prisliste> getPrisListe () {
+    public static ArrayList<Prisliste> getPrisLister () {
         return new ArrayList<Prisliste>(Storage.getPrislister());
     }
 

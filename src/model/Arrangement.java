@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Modellerer en prisliste for arrangement
@@ -24,6 +25,8 @@ public class Arrangement extends Prisliste {
     }
 
     //getters
+
+
 
     /**
      * Returnerer dato
@@ -51,6 +54,8 @@ public class Arrangement extends Prisliste {
     public int getTilmeldte() {
         return tilmeldte;
     }
+
+
 
     //setters
 
