@@ -110,8 +110,8 @@ public class Controller {
     public static void initStorage() {
 
         //Prisliste
-        Prisliste fredagsBar = Controller.createPrisliste("Fredagsbar");
         Prisliste butik = Controller.createPrisliste("Butik");
+        Prisliste fredagsBar = Controller.createPrisliste("Fredagsbar");
 
 
         // ProduktGruppe
@@ -126,6 +126,8 @@ public class Controller {
         ProduktGruppe glas = Controller.createProduktGruppe("Glas");
         ProduktGruppe sampakninger = Controller.createProduktGruppe("Sampakninger");
         ProduktGruppe rundvisning = Controller.createProduktGruppe("Rundvisning");
+
+        //Produkt klippekort = ? TODO
 
         //Produkt - flaskeøl
         Produkt klosterbrygFlaske = Controller.createProdukt("Klosterbryg", flaskeøl);
@@ -366,6 +368,19 @@ public class Controller {
         Pris fredagsBarTrækasse6øl6glas = Controller.createPris(fredagsBar, trækasse6øl6glas, 350.0);
         Pris fredagsBarTrækasse12øl = Controller.createPris(fredagsBar, trækasse12øl, 410.0);
         Pris fredagsBarPapkasse12øl = Controller.createPris(fredagsBar, papkasse12øl, 370.0);
+
+        //Ordrer
+        Ordre ordre1 = Controller.createOrdre(1, butik);
+        ordre1.createOrdreLinje(1, butikTshirt);
+        ordre1.createOrdreLinje(1, butikWhisky45Procent);
+        ordre1.createOrdreLinje(2, butikTrækasse6øl);
+        ordre1.beregnPris();
+
+        Ordre ordre2 = Controller.createOrdre(2, fredagsBar);
+        ordre2.createOrdreLinje(3, fredagsBarBlondieFlaske);
+        ordre2.createOrdreLinje(2, fredagsBar2WhiskyGlas);
+        ordre2.createOrdreLinje(1, fredagsBarPolo);
+        ordre2.beregnPris();
 
 
     }
