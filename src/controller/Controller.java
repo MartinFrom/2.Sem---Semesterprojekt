@@ -374,13 +374,13 @@ public class Controller {
         ordre1.createOrdreLinje(1, butikTshirt);
         ordre1.createOrdreLinje(1, butikWhisky45Procent);
         ordre1.createOrdreLinje(2, butikTrækasse6øl);
-        ordre1.beregnPris();
+
 
         Ordre ordre2 = Controller.createOrdre(2, fredagsBar);
         ordre2.createOrdreLinje(3, fredagsBarBlondieFlaske);
         ordre2.createOrdreLinje(2, fredagsBar2WhiskyGlas);
         ordre2.createOrdreLinje(1, fredagsBarPolo);
-        ordre2.beregnPris();
+
 
 
     }
