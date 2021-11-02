@@ -12,6 +12,7 @@ public class Storage {
     private static ArrayList<Udlejning> udlejninger = new ArrayList<>();
     private static ArrayList<Arrangement> arrangementer = new ArrayList<>();
     private static ArrayList<ProduktGruppe> produktgrupper = new ArrayList<>();
+    private static ArrayList<Pris> priser = new ArrayList<>();
 
     //---------------------------------------------------------------
 
@@ -95,6 +96,20 @@ public class Storage {
 
     public static ArrayList<Arrangement> getArrangementer() {
         return new ArrayList<>(arrangementer);
+    }
+
+    //------------------------------------------------------------------------
+
+    public static void addPris(Pris pris) {
+        priser.add(pris);
+    }
+
+    public static void deletePris(Pris pris) {
+        priser.remove(pris);
+    }
+
+    public static ArrayList<Pris> getPriser() {
+        return new ArrayList<>(priser);
     }
 
 }
