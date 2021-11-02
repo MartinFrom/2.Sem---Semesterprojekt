@@ -3,9 +3,11 @@ package model;
 public class Produkt {
     private String navn;
     private int produktnummer;
+    private ProduktGruppe produktGruppe;
 
     public Produkt (String navn, ProduktGruppe produktGruppe) {
         this.navn = navn;
+        this.produktGruppe = produktGruppe;
         produktGruppe.addProdukt(this);
     }
 
@@ -17,6 +19,10 @@ public class Produkt {
 
     public int getProduktnummer() {
         return produktnummer;
+    }
+
+    public ProduktGruppe getProduktGruppe() {
+        return produktGruppe;
     }
 
     //setters

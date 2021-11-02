@@ -1,6 +1,7 @@
 package GUI;
 
 import controller.Controller;
+import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,21 +11,23 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.*;
 import org.w3c.dom.Text;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OpretOrdreWindow extends Stage {
 
-    private ListView lwProduktGruppe;
-    private ListView lwProdukt;
-    private ListView lwBetalingsform;
-    private ListView lwOrdreLinjer;
+    private ListView<ProduktGruppe> lwProduktGruppe;
+    private ListView<Pris> lwProdukt;
+    private ListView<Betalingsform> lwBetalingsform;
+    private ListView<OrdreLinje> lwOrdreLinjer;
 
     private TextField txfAntal;
 
-    private ComboBox cbbPrisliste;
+    private ComboBox<Prisliste> cbbPrisliste;
 
     public OpretOrdreWindow(String title) {
         initStyle(StageStyle.UTILITY);
@@ -51,6 +54,10 @@ public class OpretOrdreWindow extends Stage {
         lwProduktGruppe.setPrefHeight(500);
         lwProduktGruppe.setPrefWidth(200);
         lwProduktGruppe.getItems().setAll(Controller.getProduktGrupper());
+
+        // Listener
+        ChangeListener<ProduktGruppe> produktGruppeChangeListener = (ov, oldGruppe, newGruppe) -> this.selectedProduktGruppeChanged();
+        lwProduktGruppe.getSelectionModel().selectedItemProperty().addListener(produktGruppeChangeListener);
 
         // Produkt
         Label lblProdukt = new Label("Produkter:");
@@ -98,5 +105,15 @@ public class OpretOrdreWindow extends Stage {
         pane.add(cbbPrisliste,0,0);
         cbbPrisliste.getItems().setAll(Controller.getPrisLister());
         cbbPrisliste.setPromptText("Vælg Prisliste");
+    }
+
+    //ListenerChanged
+    private void selectedProduktGruppeChanged() {
+        Prisliste prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
+        ProduktGruppe produktGruppe = lwProduktGruppe.getSelectionModel().getSelectedItem();
+        if (produktGruppe != null) {
+            ArrayList<Pris> priser = Controller.findPrisProduktGruppe(produktGruppe,prisliste);
+            lwProdukt.getItems().setAll(priser);
+        }
     }
 }

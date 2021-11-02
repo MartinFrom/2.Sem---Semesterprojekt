@@ -8,6 +8,16 @@ import java.util.ArrayList;
 
 public class Controller {
 
+    public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
+        ArrayList<Pris> result = new ArrayList<>();
+        for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
+            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe() == produktGruppe) {
+                result.add(prisliste.getPrisliste().get(i));
+            }
+        }
+        return result;
+    }
+
     //ProduktGruppe
     public static ProduktGruppe createProduktGruppe(String navn) {
         ProduktGruppe produktGruppe = new ProduktGruppe(navn);
