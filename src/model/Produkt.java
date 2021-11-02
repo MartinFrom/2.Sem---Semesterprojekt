@@ -37,6 +37,6 @@ public class Produkt {
 
     @Override
     public String toString() {
-        return "ProduktNr: " + getProduktnummer() + " | Navn: " + getNavn();
+        return "ProduktNr: " + getProduktnummer() + " | " + getNavn();
     }
 }

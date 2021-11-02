@@ -16,8 +16,10 @@ import model.Betalingsform;
 import model.Ordre;
 import model.OrdreLinje;
 
+import java.awt.*;
+
 public class MainApp extends Application{
-    private int mainWindowwidth = 1000;
+    private int mainWindowwidth = 1200;
     private int mainWindowheight = 500;
 
     private ListView<Ordre> lwOrdre;
@@ -129,7 +131,7 @@ public class MainApp extends Application{
         // ListView
         lwOrdreLinjer = new ListView<>();
         pane.add(lwOrdreLinjer,3,1,1,5);
-        lwOrdreLinjer.setPrefWidth(200);
+        lwOrdreLinjer.setPrefWidth(350);
         lwOrdreLinjer.setPrefHeight(500);
         // TODO
 
@@ -141,6 +143,9 @@ public class MainApp extends Application{
         if (ordre != null) {
             lwOrdreLinjer.getItems().clear();
             lwOrdreLinjer.getItems().setAll(ordre.getOrdrelinjer());
+            if (lwOrdre.getItems().size() != Controller.getOrdrer().size()) {
+                lwOrdre.getItems().setAll(Controller.getOrdrer());
+            }
         }
     }
 }

@@ -44,13 +44,13 @@ public class OrdreLinje {
      * @return samlet pris på ordrelinjen
      */
     public double samletPris() {
-        double oPris = 0;
+        double oPris;
         oPris = findProduktPris() * antal;
         return oPris;
     }
 
     @Override
     public String toString() {
-        return "Vare: " + pris.getProdukt() + " | Antal: " + getAntal() + " | Pris: " + samletPris();
+        return pris.getProdukt() + " | PrisPrStk: " + pris.getPris() + "kr" + "\n" + "Antal: " + getAntal() + " stk" +" | Ialt: " + samletPris()+"kr";
     }
 }

@@ -60,8 +60,8 @@ public class Pris {
     @Override
     public String toString() {
         if (udlejningsProdukt == null) {
-            return "Vare: " + getProdukt() + " | Pris: " + getPris();
+            return getProdukt() + " | Pris: " + getPris() + "kr";
         } else
-            return "Vare: " + getUdlejningsProdukt() + " | Pris: " + getPris();
+            return getUdlejningsProdukt() + " | Pris: " + getPris() + "kr";
     }
 }

@@ -53,6 +53,6 @@ public class ProduktGruppe {
 
     @Override
     public String toString() {
-        return "Kategori: " + getNavn();
+        return "" + getNavn();
     }
 }

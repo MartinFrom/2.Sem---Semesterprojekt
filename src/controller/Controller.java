@@ -11,7 +11,7 @@ public class Controller {
     public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
         ArrayList<Pris> result = new ArrayList<>();
         for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
-            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe() == produktGruppe) {
+            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe().getNavn() == produktGruppe.getNavn()) {
                 result.add(prisliste.getPrisliste().get(i));
             }
         }
@@ -31,7 +31,9 @@ public class Controller {
 
     // Produkt
     public static Produkt createProdukt(String navn, ProduktGruppe produktgruppe) {
+        int produktNr = Storage.getProdukter().size()+1;
         Produkt produkt = new Produkt(navn, produktgruppe);
+        produkt.setProduktnummer(produktNr);
         Storage.addProdukt(produkt);
         return produkt;
     }
@@ -72,7 +74,8 @@ public class Controller {
     }
 
     // Ordre
-    public static Ordre createOrdre(int ordreNr, Prisliste prisliste) {
+    public static Ordre createOrdre(Prisliste prisliste) {
+        int ordreNr = Storage.getOrdrer().size() + 1;
         Ordre ordre = new Ordre(ordreNr, prisliste);
         Storage.addOrdre(ordre);
         return ordre;
@@ -381,12 +384,12 @@ public class Controller {
         Pris fredagsBarPapkasse12øl = Controller.createPris(fredagsBar, papkasse12øl, 370.0);
 
         //Ordrer
-        Ordre ordre1 = Controller.createOrdre(1, butik);
+        Ordre ordre1 = Controller.createOrdre(butik);
         ordre1.createOrdreLinje(1, butikTshirt);
         ordre1.createOrdreLinje(1, butikWhisky45Procent);
         ordre1.createOrdreLinje(2, butikTrækasse6øl);
 
-        Ordre ordre2 = Controller.createOrdre(2, fredagsBar);
+        Ordre ordre2 = Controller.createOrdre(fredagsBar);
         ordre2.createOrdreLinje(3, fredagsBarBlondieFlaske);
         ordre2.createOrdreLinje(2, fredagsBar2WhiskyGlas);
         ordre2.createOrdreLinje(1, fredagsBarPolo);

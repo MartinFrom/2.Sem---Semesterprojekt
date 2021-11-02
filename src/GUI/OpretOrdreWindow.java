@@ -13,10 +13,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
 import org.w3c.dom.Text;
+import storage.Storage;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class OpretOrdreWindow extends Stage {
 
@@ -28,6 +31,11 @@ public class OpretOrdreWindow extends Stage {
     private TextField txfAntal;
 
     private ComboBox<Prisliste> cbbPrisliste;
+    private Label lblSamletPris;
+
+    private Ordre ordre;
+    private Prisliste prisliste;
+    private OrdreLinje ordreLinje;
 
     public OpretOrdreWindow(String title) {
         initStyle(StageStyle.UTILITY);
@@ -36,7 +44,7 @@ public class OpretOrdreWindow extends Stage {
         setTitle(title);
 
         BorderPane bPane = new BorderPane();
-        GridPane gPane = GUIHelperClass.createGridPane(1200,500,10,10,50);
+        GridPane gPane = GUIHelperClass.createGridPane(1300,500,10,10,50);
         bPane.setCenter(gPane);
         this.initContent(gPane);
 
@@ -74,11 +82,18 @@ public class OpretOrdreWindow extends Stage {
 
         txfAntal = new TextField();
         pane.add(txfAntal,2,3);
+        txfAntal.setPrefWidth(75);
+        txfAntal.setText("1");
 
         Button btnTilføjProdukt = new Button("Tilføj Produkt");
         pane.add(btnTilføjProdukt,2,4);
         btnTilføjProdukt.setPrefWidth(150);
         btnTilføjProdukt.setPrefHeight(100);
+        btnTilføjProdukt.setOnAction(e -> {
+            ordreLinje = ordre.createOrdreLinje(parseInt(txfAntal.getText()), lwProdukt.getSelectionModel().getSelectedItem());
+            lwOrdreLinjer.getItems().add(ordreLinje);
+            lblSamletPris.setText("Samlet pris: " + ordre.beregnPris());
+        });
 
         Label lblBetaling = new Label("Betalingsform:");
         pane.add(lblBetaling,2,5);
@@ -95,25 +110,46 @@ public class OpretOrdreWindow extends Stage {
         pane.add(lwOrdreLinjer,4,2,2,5);
         lwOrdreLinjer.setPrefWidth(350);
         lwOrdreLinjer.setPrefHeight(500);
-        // TODO
 
-        Button btnRegistrer = new Button("Registrer");
+        Button btnRegistrer = new Button("Færdiggør");
         pane.add(btnRegistrer,0,7);
         btnRegistrer.setPrefWidth(100);
+        btnRegistrer.setOnAction(e -> {
+            close();
+        });
 
+        lblSamletPris = new Label();
+        pane.add(lblSamletPris,4,7);
+
+
+        // Drop Down menu til Prislister
         cbbPrisliste = new ComboBox();
         pane.add(cbbPrisliste,0,0);
         cbbPrisliste.getItems().setAll(Controller.getPrisLister());
         cbbPrisliste.setPromptText("Vælg Prisliste");
+
+        ChangeListener<Prisliste> prislisteChangeListener = (ov, oldPrisliste, newPrisliste) -> this.startOrdre();
+        cbbPrisliste.getSelectionModel().selectedItemProperty().addListener(prislisteChangeListener);
     }
 
     //ListenerChanged
     private void selectedProduktGruppeChanged() {
-        Prisliste prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
         ProduktGruppe produktGruppe = lwProduktGruppe.getSelectionModel().getSelectedItem();
-        if (produktGruppe != null) {
-            ArrayList<Pris> priser = Controller.findPrisProduktGruppe(produktGruppe,prisliste);
-            lwProdukt.getItems().setAll(priser);
+        ArrayList<Pris> priser = Controller.findPrisProduktGruppe(produktGruppe,prisliste);
+        if (prisliste == null && cbbPrisliste.getSelectionModel().getSelectedItem() != null) {
+            prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
+        }
+        if (produktGruppe != null && cbbPrisliste.getSelectionModel().getSelectedItem() != null) {
+            lwProdukt.getItems().addAll(priser);
+        }
+    }
+
+    private void startOrdre() {
+        if (prisliste == null) {
+            prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
+        }
+        if (ordre == null && cbbPrisliste.getSelectionModel().getSelectedItem() != null) {
+            ordre = Controller.createOrdre(prisliste);
         }
     }
 }
