@@ -91,6 +91,8 @@ public class MainApp extends Application{
         btnOpretProdukt.setPrefWidth(150);
         btnOpretProdukt.setAlignment(Pos.CENTER_LEFT);
         btnOpretProdukt.setOnAction(e -> {
+            OpretProduktWindow opretPWindow = new OpretProduktWindow("Produkt");
+            opretPWindow.showAndWait();
 
         });
 
