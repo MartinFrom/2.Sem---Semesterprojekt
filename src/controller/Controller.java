@@ -31,7 +31,7 @@ public class Controller {
 
     // Produkt
     public static Produkt createProdukt(String navn, ProduktGruppe produktgruppe) {
-        int produktNr = Storage.getProdukter().size()+1;
+        int produktNr = Storage.getProdukter().size()+ Storage.getUdlejningsProdukter().size() +1;
         Produkt produkt = new Produkt(navn, produktgruppe);
         produkt.setProduktnummer(produktNr);
         Storage.addProdukt(produkt);
@@ -40,6 +40,18 @@ public class Controller {
 
     public static void deleteProdukt(Produkt produkt) {
         Storage.removeProdukt(produkt);
+    }
+
+    public static UdlejningsProdukt createUdlejningsProdukt(double pant, String navn, ProduktGruppe produktGruppe) {
+        int produktNr = Storage.getProdukter().size() + Storage.getUdlejningsProdukter().size() +1;
+        UdlejningsProdukt udlejningsProdukt = new UdlejningsProdukt(pant, navn, produktGruppe);
+        udlejningsProdukt.setProduktnummer(produktNr);
+        Storage.addUdlejningsProdukt(udlejningsProdukt);
+        return udlejningsProdukt;
+    }
+
+    public static void deleteUdlejningsProdukt(UdlejningsProdukt udlejningsProdukt) {
+        Storage.removeUdlejningsProdukt(udlejningsProdukt);
     }
 
     // Pris
@@ -97,13 +109,22 @@ public class Controller {
     }
 
     // Udlejning
-    public static Udlejning createUdlejning(LocalDate StartDato, LocalDate Slutdato, int ordreNr, Prisliste prisliste) {
+    public static Udlejning createUdlejning(LocalDate StartDato, LocalDate Slutdato, Prisliste prisliste) {
+        int ordreNr = Storage.getOrdrer().size() + Storage.getUdlejninger().size() + 1;
         Udlejning udlejning = new Udlejning(StartDato, Slutdato, ordreNr, prisliste);
         Storage.addUdlejning(udlejning);
         return udlejning;
     }
 
     // Getters
+    public static ArrayList<Pris> getUdlejningsPris() {
+        ArrayList<Pris> result = new ArrayList<>();
+        for (Pris p: Storage.getPrislister().get(1).getUdlejningsPriser()) {
+            result.add(p);
+        }
+        return result;
+    }
+
     public static ArrayList<ProduktGruppe> getProduktGrupper () {
         return new ArrayList<ProduktGruppe>(Storage.getProduktgrupper());
     }
@@ -192,22 +213,20 @@ public class Controller {
         Produkt lyngGin4cl = Controller.createProdukt("Lyng gin 4 cl", spiritus);
 
         //Produkt - fustage
-        Produkt klosterbryg20L = Controller.createProdukt("Klosterbryg 20 liter", fustage);
-        Produkt jazzClasic25L = Controller.createProdukt("Jazz Clasic 25 liter", fustage);
-        Produkt extraPilsner25L = Controller.createProdukt("Jazz Clasic 25 liter", fustage);
-        Produkt celebration20L = Controller.createProdukt("Celebration 20 liter", fustage);
-        Produkt blondie25L = Controller.createProdukt("Blondie 25 liter", fustage);
-        Produkt forårsbryg20L = Controller.createProdukt("Forårsbryg 20 liter", fustage);
-        Produkt indiaPaleAle20L = Controller.createProdukt("India Pale Ale 20 liter", fustage);
-        Produkt julebryg20L = Controller.createProdukt("Julebryg 20 liter", fustage);
-        Produkt imperialStout20L = Controller.createProdukt("Imperial Stout 20 liter", fustage);
-        Produkt pantFustage = Controller.createProdukt("Pant fustage", fustage);
+        Produkt klosterbryg20L = Controller.createUdlejningsProdukt(200,"Klosterbryg 20 liter", fustage);
+        Produkt jazzClasic25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
+        Produkt extraPilsner25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
+        Produkt celebration20L = Controller.createUdlejningsProdukt(200,"Celebration 20 liter", fustage);
+        Produkt blondie25L = Controller.createUdlejningsProdukt(200,"Blondie 25 liter", fustage);
+        Produkt forårsbryg20L = Controller.createUdlejningsProdukt(200,"Forårsbryg 20 liter", fustage);
+        Produkt indiaPaleAle20L = Controller.createUdlejningsProdukt(200,"India Pale Ale 20 liter", fustage);
+        Produkt julebryg20L = Controller.createUdlejningsProdukt(200,"Julebryg 20 liter", fustage);
+        Produkt imperialStout20L = Controller.createUdlejningsProdukt(200,"Imperial Stout 20 liter", fustage);
 
         //Produkt - kulsyre
-        Produkt kulsyre6kg = Controller.createProdukt("6 kg kulsyre", kulsyre);
-        Produkt pantKulsyre = Controller.createProdukt("Pant kulsyre", kulsyre);
-        Produkt kulsyre4kg = Controller.createProdukt("4 kg kulsyre", kulsyre);
-        Produkt kulsyre10kg = Controller.createProdukt("10 kg kulsyre", kulsyre);
+        Produkt kulsyre6kg = Controller.createUdlejningsProdukt(1000,"6 kg kulsyre", kulsyre);
+        Produkt kulsyre4kg = Controller.createUdlejningsProdukt(1000,"4 kg kulsyre", kulsyre);
+        Produkt kulsyre10kg = Controller.createUdlejningsProdukt(1000,"10 kg kulsyre", kulsyre);
 
         //Produkt - malt
         Produkt malt25kg = Controller.createProdukt("25 kg sæk", malt);
@@ -268,21 +287,20 @@ public class Controller {
 
 
         //Priser - butik - fustage
-        Pris butikKlosterbrygFustage = Controller.createPris(butik, klosterbryg20L, 775.0);
-        Pris butikJazzClasicFustage = Controller.createPris(butik, jazzClasic25L, 625.0);
-        Pris butikExtraPilsnerFustage = Controller.createPris(butik, extraPilsner25L, 575.0);
-        Pris butikCelebrationFustage = Controller.createPris(butik, celebration20L, 775.0);
-        Pris butikBlondieFustage = Controller.createPris(butik, blondie25L, 700.0);
-        Pris butikForårsbrygFustage = Controller.createPris(butik, forårsbryg20L, 775.0);
-        Pris butikIPAFustage = Controller.createPris(butik, indiaPaleAle20L, 775.0);
-        Pris butikJulebrygFustage = Controller.createPris(butik, julebryg20L, 775.0);
-        Pris butikImperialStoutFustage = Controller.createPris(butik, imperialStout20L, 775.0);
+        Pris fustageKlosterbrug20L = butik.createUdlejningsPris(klosterbryg20L, 775);
+        Pris fustageJazzClasic25L = butik.createUdlejningsPris(jazzClasic25L, 625.0);
+        Pris fustageextraPilsner = butik.createUdlejningsPris(extraPilsner25L,575.0);
+        Pris fustageCelebration20L =  butik.createUdlejningsPris(celebration20L, 775);
+        Pris fustageBlondie25L = butik.createUdlejningsPris(blondie25L, 700.0);
+        Pris fustageForårsbryg20L = butik.createUdlejningsPris(forårsbryg20L, 775.0);
+        Pris fustageIndiaPaleAle20L = butik.createUdlejningsPris(indiaPaleAle20L, 775.0);
+        Pris fustageJulebryg20L = butik.createUdlejningsPris(julebryg20L, 775.0);
+        Pris fustageImperialStout20L = butik.createUdlejningsPris(imperialStout20L,775.0);
 
         //Priser - butik - kulsyre
-        Pris butik6kgKulsyre = Controller.createPris(butik, kulsyre6kg, 400.0);
-        Pris butikPantKulsyre = Controller.createPris(butik, pantKulsyre, 1000.0);
-        Pris butik4kgKulsyre = Controller.createPris(butik, kulsyre4kg, (400/6*4));
-        Pris butik10kgKulsyre = Controller.createPris(butik, kulsyre10kg, (400/6*10));
+        Pris butik6kgKulsyre = butik.createUdlejningsPris(kulsyre6kg, 400.0);
+        Pris butik4kgKulsyre = butik.createUdlejningsPris(kulsyre4kg, (400/6*4));
+        Pris butik10kgKulsyre = butik.createUdlejningsPris(kulsyre10kg, (400/6*10));
 
         //Priser - butik - malt
         Pris butikMalt25kg = Controller.createPris(butik, malt25kg, 300.0);
@@ -365,7 +383,6 @@ public class Controller {
 
         //Priser - fredagsbar - kulsyre
         Pris fredagsBar6kgKulsyre = Controller.createPris(fredagsBar, kulsyre6kg, 400.0);
-        Pris fredagsBarPantKulsyre = Controller.createPris(fredagsBar, pantKulsyre, 1000.0);
         Pris fredagsBar4kgKulsyre = Controller.createPris(fredagsBar, kulsyre4kg, (400/6*4));
         Pris fredagsBar10kgKulsyre = Controller.createPris(fredagsBar, kulsyre10kg, (400/6*10));
 
@@ -396,9 +413,9 @@ public class Controller {
 
         //Udlejning
         Udlejning udlejning1 = Controller.createUdlejning(LocalDate.of(2021,11,01),
-                               LocalDate.of(2021,11,10), 1, butik);
-        udlejning1.createOrdreLinje(1, butikImperialStoutFustage);
-        udlejning1.createOrdreLinje(5, butikJulebrygFustage);
+                               LocalDate.of(2021,11,10), butik);
+        udlejning1.createOrdreLinje(1, fustageImperialStout20L);
+        udlejning1.createOrdreLinje(5, fustageJulebryg20L);
         udlejning1.createOrdreLinje(1, butik10kgKulsyre);
 
 

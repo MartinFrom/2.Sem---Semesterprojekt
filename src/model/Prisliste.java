@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Prisliste {
     private String navn;
     private static ArrayList<Pris> priser = new ArrayList<>();
+    private static ArrayList<Pris> udlejningsPriser = new ArrayList<>();
 
     public Prisliste(String navn) {
         this.navn = navn;
@@ -20,6 +21,9 @@ public class Prisliste {
         return new ArrayList<>(priser);
     }
 
+    public ArrayList<Pris> getUdlejningsPriser () {
+        return new ArrayList<>(udlejningsPriser);
+    }
     //setters
 
     public void setNavn(String navn) {
@@ -44,6 +48,12 @@ public class Prisliste {
         return pris;
     }
 
+    public Pris createUdlejningsPris(Produkt udlejningsProdukt, double varePris) {
+        Pris pris = new Pris(varePris, udlejningsProdukt, this);
+        udlejningsPriser.add(pris);
+        return pris;
+    }
+
     public void removePris(Pris pris) {
         priser.remove(pris);
     }
@@ -52,4 +62,5 @@ public class Prisliste {
     public String toString() {
         return "Navn: " + getNavn();
     }
+
 }

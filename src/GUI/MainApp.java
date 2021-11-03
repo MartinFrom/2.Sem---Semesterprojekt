@@ -12,11 +12,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import model.Betalingsform;
-import model.Ordre;
-import model.OrdreLinje;
+import model.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MainApp extends Application{
     private int mainWindowwidth = 1200;
@@ -101,6 +100,7 @@ public class MainApp extends Application{
         btnBetaling.setPrefHeight(75);
         btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
+            setLwOrdre();
             lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
         });
 
@@ -113,7 +113,7 @@ public class MainApp extends Application{
         pane.add(lwOrdre,0,4,2,2);
         lwOrdre.setPrefHeight(150);
         lwOrdre.setPrefWidth(500);
-        lwOrdre.getItems().setAll(Controller.getOrdrer());
+        setLwOrdre();
 
         // ListView Ordre Listener
         ChangeListener<Ordre> ordreChangeListener = (ov, oldOrdre, newOrdre) -> this.selectedOrdreChanged();
@@ -145,9 +145,26 @@ public class MainApp extends Application{
         if (ordre != null) {
             lwOrdreLinjer.getItems().clear();
             lwOrdreLinjer.getItems().setAll(ordre.getOrdrelinjer());
-            if (lwOrdre.getItems().size() != Controller.getOrdrer().size()) {
-                lwOrdre.getItems().setAll(Controller.getOrdrer());
+            if (lwOrdre.getItems().size() != Controller.getOrdrer().size() + Controller.getUdlejninger().size()) {
+                setLwOrdre();
             }
         }
+    }
+
+    private void setLwOrdre() {
+        lwOrdre.getItems().setAll(samletOrdreUdlejning());
+    }
+
+    private ArrayList<Ordre> samletOrdreUdlejning() {
+        ArrayList<Ordre> result1;
+        result1 = Controller.getOrdrer();
+        ArrayList<Udlejning> result2;
+        result2 = Controller.getUdlejninger();
+
+        ArrayList<Ordre> result = new ArrayList<>();
+        result.addAll(result1);
+        result.addAll(result2);
+
+        return result;
     }
 }

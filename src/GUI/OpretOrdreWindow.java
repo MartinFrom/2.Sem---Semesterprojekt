@@ -140,7 +140,7 @@ public class OpretOrdreWindow extends Stage {
             prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
         }
         if (produktGruppe != null && cbbPrisliste.getSelectionModel().getSelectedItem() != null) {
-            lwProdukt.getItems().addAll(priser);
+            lwProdukt.getItems().setAll(priser);
         }
     }
 

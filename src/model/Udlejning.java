@@ -55,7 +55,7 @@ public class Udlejning extends Ordre{
         ArrayList<OrdreLinje> ordreLinjer = getOrdrelinjer();
         double samletPant = 0;
         for (OrdreLinje OL:
-             ordreLinjer) {
+             brugteProdukter) {
             samletPant += OL.getPris().getUdlejningsProdukt().getPant();
             }
         return samletPant;

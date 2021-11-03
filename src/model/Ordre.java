@@ -169,6 +169,6 @@ public class Ordre {
 
     @Override
     public String toString() {
-        return "Nr:" + getOrdreNr() + " | Type: Salg" + " | Pris: " + beregnPris() + " | Betalt: Ja" + " | Betalingsform: " + getBetalingsform();
+        return "Nr:" + getOrdreNr() + " | Type: Salg" + " | Pris: " + beregnPris() + " | Betalt: True" + " | Betalingsform: " + getBetalingsform();
     }
 }

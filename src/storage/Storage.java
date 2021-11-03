@@ -9,6 +9,7 @@ public class Storage {
     private static ArrayList<Ordre> ordrer = new ArrayList<>();
     private static ArrayList<Prisliste> prislister = new ArrayList<>();
     private static ArrayList<Produkt> produkter = new ArrayList<>();
+    private static ArrayList<UdlejningsProdukt> udlejningsProdukter = new ArrayList<>();
     private static ArrayList<Udlejning> udlejninger = new ArrayList<>();
     private static ArrayList<Arrangement> arrangementer = new ArrayList<>();
     private static ArrayList<ProduktGruppe> produktgrupper = new ArrayList<>();
@@ -54,6 +55,19 @@ public class Storage {
 
     public static ArrayList<Produkt> getProdukter() {
         return new ArrayList<>(produkter);
+    }
+
+    //
+    public static void addUdlejningsProdukt(UdlejningsProdukt produkt) {
+        udlejningsProdukter.add(produkt);
+    }
+
+    public static void removeUdlejningsProdukt (UdlejningsProdukt produkt) {
+        udlejningsProdukter.remove(produkt);
+    }
+
+    public static ArrayList<UdlejningsProdukt> getUdlejningsProdukter () {
+        return new ArrayList<>(udlejningsProdukter);
     }
 
     //---------------------------------------------------------------------
