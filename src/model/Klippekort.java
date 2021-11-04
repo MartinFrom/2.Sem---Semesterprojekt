@@ -1,6 +1,8 @@
 package model;
 
 /**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
  * Modellerer et klippekort
  */
 public class Klippekort extends Produkt{

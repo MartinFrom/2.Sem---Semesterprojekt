@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class OrdreLinje {
     private Pris pris;
     private int antal;

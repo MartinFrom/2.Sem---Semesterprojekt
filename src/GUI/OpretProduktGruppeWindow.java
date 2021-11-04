@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.ProduktGruppe;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
 
 public class OpretProduktGruppeWindow extends Stage {
 

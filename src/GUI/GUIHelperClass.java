@@ -2,7 +2,6 @@ package GUI;
 
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -10,7 +9,12 @@ import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Klasse der opretter forskellige GUI Panes
+ */
 
 public class GUIHelperClass {
     public static TabPane createTabPane(Tab... tabs) {
@@ -53,23 +57,6 @@ public class GUIHelperClass {
         GridPane gp = createGridPane(width, height,vGap, vGap, padding);
         scp.setContent(gp);
         return scp;
-    }
-
-    /**
-     * creates a button thats able to hide specified stage
-     *
-     * @param stage is the stage the button should close (hide)
-     * @param pane is the pane the button should be added to
-     * @param title is the title of the button
-     * @param col is the collum on the pane where the button should be added
-     * @param row is the row on the pane where the button should be added
-     * */
-    public static void StageCloseBut( Stage  stage, GridPane pane, String title, int col, int row) {
-        Button closeBnt = new Button(title);
-        closeBnt.setOnAction(e -> {
-            stage.hide();
-        });
-        pane.add(closeBnt, col, row);
     }
 }
 

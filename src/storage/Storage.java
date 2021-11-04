@@ -1,8 +1,11 @@
 package storage;
 
 import model.*;
-
 import java.util.ArrayList;
+
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
 
 public class Storage {
 

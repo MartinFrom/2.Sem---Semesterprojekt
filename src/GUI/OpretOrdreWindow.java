@@ -14,6 +14,10 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class OpretOrdreWindow extends Stage {
 
     private ListView<ProduktGruppe> lwProduktGruppe;
@@ -140,6 +144,9 @@ public class OpretOrdreWindow extends Stage {
         }
     }
 
+    /**
+     * Opretter Ordre efter valgte Prisliste
+     */
     private void startOrdre() {
         if (prisliste == null) {
             prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();

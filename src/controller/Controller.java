@@ -6,8 +6,18 @@ import storage.Storage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class Controller {
 
+    /**
+     * Finder de priser der har produkter til fælles med produktGruppe input
+     * @param produktGruppe
+     * @param prisliste
+     * @return
+     */
     public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
         ArrayList<Pris> result = new ArrayList<>();
         for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
@@ -164,8 +174,10 @@ public class Controller {
         return new ArrayList<Udlejning>(Storage.getUdlejninger());
     }
 
+    /**
+     * initStorage der opretter 2 Prislister (Butik/Fredagsbar) baseret på udleveret oplysninger
+     */
     public static void initStorage() {
-
         //Prisliste
         Prisliste butik = Controller.createPrisliste("Butik");
         Prisliste fredagsBar = Controller.createPrisliste("Fredagsbar");
@@ -439,13 +451,6 @@ public class Controller {
         Ordre ordre3 = Controller.createOrdre(butik);
         ordre3.createOrdreLinje(10, butikForårsbryg);
         ordre3.setBetalingsform(kontant);
-
-        //Udlejning
-        Udlejning udlejning1 = Controller.createUdlejning(LocalDate.of(2021,11,01),
-                               LocalDate.of(2021,11,10), butik);
-        udlejning1.createOrdreLinje(1, fustageImperialStout20L);
-        udlejning1.createOrdreLinje(5, fustageJulebryg20L);
-        udlejning1.createOrdreLinje(1, butik10kgKulsyre);
 
 
 

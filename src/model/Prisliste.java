@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class Prisliste {
     private String navn;
     private ArrayList<Pris> priser = new ArrayList<>();
