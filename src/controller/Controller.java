@@ -8,6 +8,16 @@ import java.util.ArrayList;
 
 public class Controller {
 
+    public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
+        ArrayList<Pris> result = new ArrayList<>();
+        for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
+            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe() == produktGruppe ) {
+                result.add(prisliste.getPrisliste().get(i));
+            }
+        }
+        return result;
+    }
+
     //Betalingsform
     public static Betalingsform createBetalingsformKontant(String navn) {
         Betalingsform betalingKontant = new BetalingsformKontant(navn);
@@ -71,16 +81,6 @@ public class Controller {
 
     public static void deletePris(Prisliste prisliste, Pris pris) {
         prisliste.removePris(pris);
-    }
-
-    public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
-        ArrayList<Pris> result = new ArrayList<>();
-        for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
-            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe() == produktGruppe ) {
-                result.add(prisliste.getPrisliste().get(i));
-            }
-        }
-        return result;
     }
 
     // Prisliste

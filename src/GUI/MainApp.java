@@ -163,10 +163,8 @@ public class MainApp extends Application{
         ArrayList<Udlejning> result2;
         result2 = Controller.getUdlejninger();
 
-        ArrayList<Ordre> result = new ArrayList<>();
-        result.addAll(result1);
-        result.addAll(result2);
+        result1.addAll(result2);
 
-        return result;
+        return result1;
     }
 }

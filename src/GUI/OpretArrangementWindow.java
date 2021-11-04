@@ -145,7 +145,6 @@ public class OpretArrangementWindow extends Stage {
         pane.add(btnOpretArrangement,3,1);
         btnOpretArrangement.setOnAction(e -> {
             arr = Controller.createArrangement(txfNavn.getText(), DatePicker.getValue(), parseInt(txfPladser.getText()));
-            var liste = arr.getPrisliste();
 
             lblProduktGruppe.setVisible(true);
             lwProduktGruppe.setVisible(true);
