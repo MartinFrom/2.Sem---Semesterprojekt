@@ -2,13 +2,7 @@ package Test;
 
 import controller.Controller;
 import model.*;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestOrdre {

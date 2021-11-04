@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Pris {
     double pris;
     private Produkt produkt = null;

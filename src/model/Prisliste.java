@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class Prisliste {
     private String navn;
     private ArrayList<Pris> priser = new ArrayList<>();
+
+    // UdlejningsPriser ArrayList: Static da Udlejning ikke er afhængig
+    // af prisliste og har sit eget Window i GUI´en.
     private static ArrayList<Pris> udlejningsPriser = new ArrayList<>();
 
     public Prisliste(String navn) {

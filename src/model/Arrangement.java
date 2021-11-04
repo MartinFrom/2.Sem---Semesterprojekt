@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 /**
  * Modellerer en prisliste for arrangement
@@ -13,7 +12,7 @@ public class Arrangement extends Prisliste {
     private int tilmeldte;
 
     /**
-     * Initialiserer et arrangement med navn, dato, antal pladser og antal tilmeldte
+     * Initialiserer et arrangement med navn, dato og antal pladser
      * @param navn navnet på arrangement
      * @param dato dato for arrangement
      * @param pladser antal pladser for arrangement
@@ -25,8 +24,6 @@ public class Arrangement extends Prisliste {
     }
 
     //getters
-
-
 
     /**
      * Returnerer dato
@@ -86,6 +83,6 @@ public class Arrangement extends Prisliste {
 
     @Override
     public String toString() {
-        return "Navn: " + getNavn() + "| Antal pladser: " + getPladser() + "´| Dato:" + getDato();
+        return "Navn: " + getNavn() + "| Antal pladser: " + getPladser() + " | Dato: " + getDato();
     }
 }

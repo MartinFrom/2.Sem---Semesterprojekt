@@ -1,6 +1,5 @@
 package model;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,12 +12,9 @@ public class Udlejning extends Ordre{
         super(ordreNr, prisliste);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
-
     }
 
     // getters og setters
-
-
     public LocalDate getStartDato() {
         return StartDato;
     }

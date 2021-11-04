@@ -5,5 +5,4 @@ package model;
         public void betaling(double pris);
 
         public String toString();
-
 }
