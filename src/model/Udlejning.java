@@ -7,12 +7,13 @@ import java.util.ArrayList;
 public class Udlejning extends Ordre{
     private LocalDate StartDato;
     private LocalDate SlutDato;
-    private ArrayList<OrdreLinje> brugteProdukter = new ArrayList<>();
+    private ArrayList<OrdreLinje> Produkter = new ArrayList<>();
 
     public Udlejning (LocalDate StartDato, LocalDate Slutdato, int ordreNr, Prisliste prisliste) {
         super(ordreNr, prisliste);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
+
     }
 
     // getters og setters
@@ -37,25 +38,15 @@ public class Udlejning extends Ordre{
     //Metoder
     public OrdreLinje afleverProdukter(int antal, Pris pris) {
         OrdreLinje OL = new OrdreLinje(antal, pris);
-        brugteProdukter.add(OL);
+        Produkter.add(OL);
         return OL;
     }
 
-    public double beregnUdlejningsPris() {
-        double vareReturPris = 0;
-        for (OrdreLinje OL:
-             brugteProdukter) {
-             vareReturPris += OL.samletPris();
-        }
-        return super.beregnPris() - vareReturPris;
-    }
-
-
     public double beregnPant() {
-        ArrayList<OrdreLinje> ordreLinjer = getOrdrelinjer();
+       Produkter = new ArrayList<>(super.getOrdrelinjer());
         double samletPant = 0;
         for (OrdreLinje OL:
-             brugteProdukter) {
+              Produkter) {
             samletPant += OL.getPris().getUdlejningsProdukt().getPant();
             }
         return samletPant;

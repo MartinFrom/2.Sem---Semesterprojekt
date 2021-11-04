@@ -1,5 +1,6 @@
 package GUI;
 
+
 import controller.Controller;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -135,6 +136,7 @@ public class OpretArrangementWindow extends Stage {
         btnGem.setVisible(false);
         btnGem.setOnAction(e -> {
             Storage.addPrisliste(arr);
+
             close();
         });
 
@@ -143,6 +145,7 @@ public class OpretArrangementWindow extends Stage {
         pane.add(btnOpretArrangement,3,1);
         btnOpretArrangement.setOnAction(e -> {
             arr = Controller.createArrangement(txfNavn.getText(), DatePicker.getValue(), parseInt(txfPladser.getText()));
+            var liste = arr.getPrisliste();
 
             lblProduktGruppe.setVisible(true);
             lwProduktGruppe.setVisible(true);

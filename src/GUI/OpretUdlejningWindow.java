@@ -79,7 +79,7 @@ public class OpretUdlejningWindow extends Stage {
             startUdlejning();
             ordreLinje = udlejning.createOrdreLinje(parseInt(txfAntal.getText()), lwUdlejningsProdukt.getSelectionModel().getSelectedItem());
             lwOrdreLinjer.getItems().add(ordreLinje);
-            txfPris.setText(String.valueOf(udlejning.beregnUdlejningsPris()));
+            txfPris.setText(String.valueOf(udlejning.beregnPris()));
             txfPant.setText(String.valueOf(udlejning.beregnPant()));
         });
 

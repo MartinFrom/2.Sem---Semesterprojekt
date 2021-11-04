@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Prisliste {
     private String navn;
-    private static ArrayList<Pris> priser = new ArrayList<>();
+    private ArrayList<Pris> priser = new ArrayList<>();
     private static ArrayList<Pris> udlejningsPriser = new ArrayList<>();
 
     public Prisliste(String navn) {
@@ -18,7 +18,7 @@ public class Prisliste {
     }
 
     public ArrayList<Pris> getPrisliste() {
-        return new ArrayList<>(priser);
+        return priser;
     }
 
     public ArrayList<Pris> getUdlejningsPriser () {

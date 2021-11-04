@@ -2,22 +2,15 @@ package GUI;
 
 import controller.Controller;
 import javafx.beans.value.ChangeListener;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
-import org.w3c.dom.Text;
-import storage.Storage;
-
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
@@ -142,6 +135,7 @@ public class OpretOrdreWindow extends Stage {
             prisliste = cbbPrisliste.getSelectionModel().getSelectedItem();
         }
         if (produktGruppe != null && cbbPrisliste.getSelectionModel().getSelectedItem() != null) {
+            lwProdukt.getItems().clear();
             lwProdukt.getItems().setAll(priser);
         }
     }
