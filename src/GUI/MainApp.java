@@ -131,7 +131,8 @@ public class MainApp extends Application{
         pane.add(lwBetalingsform,2,4);
         lwBetalingsform.setPrefHeight(100);
         lwBetalingsform.setPrefWidth(150);
-        // TODO
+        lwBetalingsform.getItems().setAll(Controller.getBetalingsformer());
+
 
         Label lblOrdrelinje = new Label("Ordrelinjer:");
         pane.add(lblOrdrelinje,3,0);
