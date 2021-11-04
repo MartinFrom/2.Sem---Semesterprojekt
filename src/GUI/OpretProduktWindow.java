@@ -26,9 +26,7 @@ public class OpretProduktWindow extends Stage {
     private ListView<ProduktGruppe> lwProduktGruppe;
     private ListView<Produkt> lwProdukt;
     private Produkt produkt;
-
     private TextField txfNytProdukt;
-    private Label lblSamletPris;
 
 
     public OpretProduktWindow(String title) {
