@@ -55,7 +55,7 @@ public class Prisliste {
         return pris;
     }
 
-    public Pris createUdlejningsPris(Produkt udlejningsProdukt, double varePris) {
+    public Pris createUdlejningsPris(UdlejningsProdukt udlejningsProdukt, double varePris) {
         Pris pris = new Pris(varePris, udlejningsProdukt, this);
         udlejningsPriser.add(pris);
         return pris;

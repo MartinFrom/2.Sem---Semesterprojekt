@@ -69,7 +69,6 @@ public class OpretProduktWindow extends Stage {
         txfNytProdukt = new TextField();
         pane.add(txfNytProdukt,2,3);
         txfNytProdukt.setPrefWidth(75);
-        txfNytProdukt.setText("1");
 
         Button btnTilføjProdukt = new Button("Tilføj produkt");
         pane.add(btnTilføjProdukt,2,4);

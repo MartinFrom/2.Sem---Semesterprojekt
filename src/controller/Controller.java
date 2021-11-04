@@ -243,20 +243,20 @@ public class Controller {
         Produkt lyngGin4cl = Controller.createProdukt("Lyng gin 4 cl", spiritus);
 
         //Produkt - fustage
-        Produkt klosterbryg20L = Controller.createUdlejningsProdukt(200,"Klosterbryg 20 liter", fustage);
-        Produkt jazzClasic25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
-        Produkt extraPilsner25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
-        Produkt celebration20L = Controller.createUdlejningsProdukt(200,"Celebration 20 liter", fustage);
-        Produkt blondie25L = Controller.createUdlejningsProdukt(200,"Blondie 25 liter", fustage);
-        Produkt forårsbryg20L = Controller.createUdlejningsProdukt(200,"Forårsbryg 20 liter", fustage);
-        Produkt indiaPaleAle20L = Controller.createUdlejningsProdukt(200,"India Pale Ale 20 liter", fustage);
-        Produkt julebryg20L = Controller.createUdlejningsProdukt(200,"Julebryg 20 liter", fustage);
-        Produkt imperialStout20L = Controller.createUdlejningsProdukt(200,"Imperial Stout 20 liter", fustage);
+        UdlejningsProdukt klosterbryg20L = Controller.createUdlejningsProdukt(200,"Klosterbryg 20 liter", fustage);
+        UdlejningsProdukt jazzClasic25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
+        UdlejningsProdukt extraPilsner25L = Controller.createUdlejningsProdukt(200,"Jazz Clasic 25 liter", fustage);
+        UdlejningsProdukt celebration20L = Controller.createUdlejningsProdukt(200,"Celebration 20 liter", fustage);
+        UdlejningsProdukt blondie25L = Controller.createUdlejningsProdukt(200,"Blondie 25 liter", fustage);
+        UdlejningsProdukt forårsbryg20L = Controller.createUdlejningsProdukt(200,"Forårsbryg 20 liter", fustage);
+        UdlejningsProdukt indiaPaleAle20L = Controller.createUdlejningsProdukt(200,"India Pale Ale 20 liter", fustage);
+        UdlejningsProdukt julebryg20L = Controller.createUdlejningsProdukt(200,"Julebryg 20 liter", fustage);
+        UdlejningsProdukt imperialStout20L = Controller.createUdlejningsProdukt(200,"Imperial Stout 20 liter", fustage);
 
         //Produkt - kulsyre
-        Produkt kulsyre6kg = Controller.createUdlejningsProdukt(1000,"6 kg kulsyre", kulsyre);
-        Produkt kulsyre4kg = Controller.createUdlejningsProdukt(1000,"4 kg kulsyre", kulsyre);
-        Produkt kulsyre10kg = Controller.createUdlejningsProdukt(1000,"10 kg kulsyre", kulsyre);
+        UdlejningsProdukt kulsyre6kg = Controller.createUdlejningsProdukt(1000,"6 kg kulsyre", kulsyre);
+        UdlejningsProdukt kulsyre4kg = Controller.createUdlejningsProdukt(1000,"4 kg kulsyre", kulsyre);
+        UdlejningsProdukt kulsyre10kg = Controller.createUdlejningsProdukt(1000,"10 kg kulsyre", kulsyre);
 
         //Produkt - malt
         Produkt malt25kg = Controller.createProdukt("25 kg sæk", malt);

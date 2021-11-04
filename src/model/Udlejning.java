@@ -45,6 +45,14 @@ public class Udlejning extends Ordre{
     }
 
     //Metoder
+
+    /**
+     * Metode til aflevering af produkter
+     * Bliver ikke brugt, da metoden er færdigarbejdet
+     * @param antal
+     * @param pris
+     * @return
+     */
     public OrdreLinje afleverProdukter(int antal, Pris pris) {
         OrdreLinje OL = new OrdreLinje(antal, pris);
         brugteProdukter.add(OL);

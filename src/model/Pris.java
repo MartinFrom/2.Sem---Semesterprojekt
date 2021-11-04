@@ -5,8 +5,8 @@ package model;
  */
 
 public class Pris {
-    double pris;
-    private Produkt produkt = null;
+    private double pris;
+    private Produkt produkt;
     private Prisliste prisliste;
     private UdlejningsProdukt udlejningsProdukt = null;
 

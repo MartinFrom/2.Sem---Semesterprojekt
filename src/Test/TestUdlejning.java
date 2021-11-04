@@ -17,11 +17,11 @@ public class TestUdlejning {
     private Prisliste TestPris;
     private ProduktGruppe produktGruppeTest;
 
-    private Produkt p1;
-    private Produkt p2;
-    private Produkt p3;
-    private Produkt p4;
-    private Produkt p5;
+    private UdlejningsProdukt p1;
+    private UdlejningsProdukt p2;
+    private UdlejningsProdukt p3;
+    private UdlejningsProdukt p4;
+    private UdlejningsProdukt p5;
 
 
 
