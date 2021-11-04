@@ -8,14 +8,23 @@ import java.util.ArrayList;
 
 public class Controller {
 
-    public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
-        ArrayList<Pris> result = new ArrayList<>();
-        for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
-            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe().getNavn() == produktGruppe.getNavn()) {
-                result.add(prisliste.getPrisliste().get(i));
-            }
-        }
-        return result;
+    //Betalingsform
+    public static Betalingsform createBetalingsformKontant(String navn) {
+        Betalingsform betalingKontant = new BetalingsformKontant(navn);
+        Storage.addBetalingsform(betalingKontant);
+        return betalingKontant;
+    }
+
+    public static Betalingsform createBetalingsformKort(String navn, int kortNr, int udløbsÅr, int udløbsMåned, int CVV) {
+        Betalingsform betalingKort = new BetalingsformKort(navn, kortNr, udløbsÅr, udløbsMåned, CVV);
+        Storage.addBetalingsform(betalingKort);
+        return betalingKort;
+    }
+
+    public static Betalingsform createBetalingsformMobilepay(String navn, int mobilNr) {
+        Betalingsform betalingMobilepay = new BetalingsformMobilepay(navn, mobilNr);
+        Storage.addBetalingsform(betalingMobilepay);
+        return betalingMobilepay;
     }
 
     //ProduktGruppe
@@ -62,6 +71,16 @@ public class Controller {
 
     public static void deletePris(Prisliste prisliste, Pris pris) {
         prisliste.removePris(pris);
+    }
+
+    public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
+        ArrayList<Pris> result = new ArrayList<>();
+        for (int i = 0; i < prisliste.getPrisliste().size(); i++) {
+            if (prisliste.getPrisliste().get(i).getProdukt().getProduktGruppe().getNavn() == produktGruppe.getNavn()) {
+                result.add(prisliste.getPrisliste().get(i));
+            }
+        }
+        return result;
     }
 
     // Prisliste
@@ -117,6 +136,10 @@ public class Controller {
     }
 
     // Getters
+    public static ArrayList<Betalingsform> getBetalingsformer() {
+        return new ArrayList<Betalingsform>(Storage.getBetalingsformer());
+    }
+
     public static ArrayList<Pris> getUdlejningsPris() {
         ArrayList<Pris> result = new ArrayList<>();
         for (Pris p: Storage.getPrislister().get(1).getUdlejningsPriser()) {
@@ -147,7 +170,6 @@ public class Controller {
         Prisliste butik = Controller.createPrisliste("Butik");
         Prisliste fredagsBar = Controller.createPrisliste("Fredagsbar");
 
-
         // ProduktGruppe
         ProduktGruppe flaskeøl = Controller.createProduktGruppe("Flaskeøl");
         ProduktGruppe fadøl = Controller.createProduktGruppe("Fadøl");
@@ -160,8 +182,6 @@ public class Controller {
         ProduktGruppe glas = Controller.createProduktGruppe("Glas");
         ProduktGruppe sampakninger = Controller.createProduktGruppe("Sampakninger");
         ProduktGruppe rundvisning = Controller.createProduktGruppe("Rundvisning");
-
-        //Produkt klippekort = ? TODO
 
         //Produkt - flaskeøl
         Produkt klosterbrygFlaske = Controller.createProdukt("Klosterbryg", flaskeøl);
@@ -178,7 +198,6 @@ public class Controller {
         Produkt imperialStoutFlaske = Controller.createProdukt("Imperial Stout", flaskeøl);
         Produkt tributeFlaske = Controller.createProdukt("Tribute", flaskeøl);
         Produkt blackMonsterFlaske = Controller.createProdukt("Black Monster", flaskeøl);
-
 
         //Produkt - fadøl
         Produkt klosterbrygFad = Controller.createProdukt("Klosterbryg", fadøl);
@@ -199,7 +218,6 @@ public class Controller {
         Produkt sevenUpFad = Controller.createProdukt("7-Up", fadøl);
         Produkt vandFad = Controller.createProdukt("Vand", fadøl);
         Produkt ølpølserFad = Controller.createProdukt("Ølpølser", fadøl);
-
 
         //Produkt - spiritus
         Produkt whisky45Procent50Cl = Controller.createProdukt("Whisky 45% - 50cl rør", spiritus);
@@ -401,9 +419,9 @@ public class Controller {
         Pris fredagsBarPapkasse12øl = Controller.createPris(fredagsBar, papkasse12øl, 370.0);
 
         //Betalingsform
-        Betalingsform kontant = new BetalingsformKontant("Kontant");
-        Betalingsform kort = new BetalingsformKort("Kort", 12345678, 123, 1221, 1212);
-        Betalingsform mobilepay = new BetalingsformMobilepay("Mobilepay", 22222222);
+        Betalingsform kort = Controller.createBetalingsformKort("Kort", 12345678, 123, 1221, 1212);
+        Betalingsform mobilepay = Controller.createBetalingsformMobilepay("Mobilepay", 12345678);
+        Betalingsform kontant = Controller.createBetalingsformKontant("Kontant");
 
         //Ordrer
         Ordre ordre1 = Controller.createOrdre(butik);

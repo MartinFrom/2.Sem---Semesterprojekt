@@ -57,6 +57,10 @@ public class Ordre {
      * @return betalingsform på ordren
      * Pre: ordre objekt eksisterer
      */
+  //  public Betalingsform1 getBetalingsform() {
+ //       return betalingsform;
+  //  }
+
     public Betalingsform getBetalingsform() {
         return betalingsform;
     }
@@ -75,8 +79,6 @@ public class Ordre {
     }
 
     //setters
-
-
     public void setErBetalt(boolean erBetalt) {
         this.erBetalt = erBetalt;
     }
@@ -164,8 +166,6 @@ public class Ordre {
         }
         return samletPris;
     }
-
-
 
     @Override
     public String toString() {

@@ -25,6 +25,7 @@ public class OpretOrdreWindow extends Stage {
 
     private ListView<ProduktGruppe> lwProduktGruppe;
     private ListView<Pris> lwProdukt;
+  //  private ListView<Betalingsform1> lwBetalingsform;
     private ListView<Betalingsform> lwBetalingsform;
     private ListView<OrdreLinje> lwOrdreLinjer;
 
@@ -100,7 +101,8 @@ public class OpretOrdreWindow extends Stage {
         // ListView
         lwBetalingsform = new ListView<>();
         pane.add(lwBetalingsform,2,6);
-        // TODO
+        lwBetalingsform.getItems().setAll(Controller.getBetalingsformer());
+
 
         // ListView Kurv
         Label lblOrdreLinjer = new Label("Kurv:");

@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -24,6 +25,8 @@ public class MainApp extends Application{
     private ListView<Ordre> lwOrdre;
     private ListView<Betalingsform> lwBetalingsform;
     private ListView<OrdreLinje> lwOrdreLinjer;
+
+    private Ordre ordre;
 
 
     public void init() {
@@ -100,8 +103,10 @@ public class MainApp extends Application{
         btnBetaling.setPrefHeight(75);
         btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
-            setLwOrdre();
-            lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
+           // RegistrerBetalingWindow betalingsWindow = new RegistrerBetalingWindow(ordre);
+         //   betalingsWindow.showAndWait();
+          setLwOrdre();
+          lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
         });
 
         // ListView Ordre/Udlejninger
@@ -119,7 +124,7 @@ public class MainApp extends Application{
         ChangeListener<Ordre> ordreChangeListener = (ov, oldOrdre, newOrdre) -> this.selectedOrdreChanged();
         lwOrdre.getSelectionModel().selectedItemProperty().addListener(ordreChangeListener);
 
-        Label lblBetaling = new Label("Betalingsform:");
+        Label lblBetaling = new Label("Vælg betalingsform:");
         pane.add(lblBetaling,2,3);
         // ListView
         lwBetalingsform = new ListView<>();

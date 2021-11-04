@@ -14,6 +14,7 @@ public class Storage {
     private static ArrayList<Arrangement> arrangementer = new ArrayList<>();
     private static ArrayList<ProduktGruppe> produktgrupper = new ArrayList<>();
     private static ArrayList<Pris> priser = new ArrayList<>();
+    private static ArrayList<Betalingsform> betalingsformer = new ArrayList<>();
 
     //---------------------------------------------------------------
 
@@ -126,4 +127,13 @@ public class Storage {
         return new ArrayList<>(priser);
     }
 
+    //-------------------------------------------------------------------------
+
+    public static void addBetalingsform(Betalingsform betalingsform) {
+        betalingsformer.add(betalingsform);
+    }
+
+    public static ArrayList<Betalingsform> getBetalingsformer() {
+        return new ArrayList<>(betalingsformer);
+    }
 }
