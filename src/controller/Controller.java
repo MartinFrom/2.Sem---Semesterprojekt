@@ -400,16 +400,27 @@ public class Controller {
         Pris fredagsBarTrækasse12øl = Controller.createPris(fredagsBar, trækasse12øl, 410.0);
         Pris fredagsBarPapkasse12øl = Controller.createPris(fredagsBar, papkasse12øl, 370.0);
 
+        //Betalingsform
+        Betalingsform kontant = new BetalingsformKontant("Kontant");
+        Betalingsform kort = new BetalingsformKort("Kort", 12345678, 123, 1221, 1212);
+        Betalingsform mobilepay = new BetalingsformMobilepay("Mobilepay", 22222222);
+
         //Ordrer
         Ordre ordre1 = Controller.createOrdre(butik);
         ordre1.createOrdreLinje(1, butikTshirt);
         ordre1.createOrdreLinje(1, butikWhisky45Procent);
         ordre1.createOrdreLinje(2, butikTrækasse6øl);
+        ordre1.setBetalingsform(kort);
 
         Ordre ordre2 = Controller.createOrdre(fredagsBar);
         ordre2.createOrdreLinje(3, fredagsBarBlondieFlaske);
         ordre2.createOrdreLinje(2, fredagsBar2WhiskyGlas);
         ordre2.createOrdreLinje(1, fredagsBarPolo);
+        ordre2.setBetalingsform(mobilepay);
+
+        Ordre ordre3 = Controller.createOrdre(butik);
+        ordre3.createOrdreLinje(10, butikForårsbryg);
+        ordre3.setBetalingsform(kontant);
 
         //Udlejning
         Udlejning udlejning1 = Controller.createUdlejning(LocalDate.of(2021,11,01),
