@@ -96,7 +96,7 @@ public class OpretOrdreWindow extends Stage {
             lblSamletPris.setText("Samlet pris: " + ordre.beregnPris());
         });
 
-        Label lblBetaling = new Label("Betalingsform:");
+        Label lblBetaling = new Label("Vælg betalingsform:");
         pane.add(lblBetaling,2,5);
         // ListView
         lwBetalingsform = new ListView<>();
