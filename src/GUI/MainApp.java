@@ -101,8 +101,6 @@ public class MainApp extends Application{
         btnBetaling.setPrefHeight(75);
         btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
-           // RegistrerBetalingWindow betalingsWindow = new RegistrerBetalingWindow(ordre);
-         //   betalingsWindow.showAndWait();
           setLwOrdre();
           lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
         });

@@ -452,4 +452,8 @@ public class Controller {
 
     }
 
+    public static Controller getTestController() {
+        return new Controller();
+    }
+
 }

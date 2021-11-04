@@ -43,7 +43,7 @@ public class Udlejning extends Ordre{
     }
 
     public double beregnPant() {
-       Produkter = new ArrayList<>(super.getOrdrelinjer());
+       Produkter = super.getOrdrelinjer();
         double samletPant = 0;
         for (OrdreLinje OL:
               Produkter) {
