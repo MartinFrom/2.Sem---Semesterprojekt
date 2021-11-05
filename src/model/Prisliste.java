@@ -46,12 +46,20 @@ public class Prisliste {
      * @return
      */
     public Pris createPris(Produkt produkt, double varePris) {
+        if(produkt != null || varePris <= 0) {
+            throw new IllegalArgumentException("Produktet eksisterer ikke, og varePris skal være større end 0");
+        }
+
         Pris pris = new Pris(varePris, produkt, this);
         priser.add(pris);
         return pris;
     }
 
     public Pris createUdlejningsPris(Produkt udlejningsProdukt, double varePris) {
+        if (udlejningsProdukt != null || varePris <= 0) {
+            throw new IllegalArgumentException("Udlejningsprodukt eksisterer ikke, og varepris skal være større end 0");
+        }
+
         Pris pris = new Pris(varePris, udlejningsProdukt, this);
         udlejningsPriser.add(pris);
         return pris;

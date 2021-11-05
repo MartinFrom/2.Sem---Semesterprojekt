@@ -1,10 +1,11 @@
-package Test;
+package test;
 
 import controller.Controller;
 import model.Pris;
 import model.Prisliste;
 import model.Produkt;
 import model.ProduktGruppe;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -44,6 +45,7 @@ public class TestController {
     }
 
     @Test
+    @Order(1)
     void test_tc1_TomPrisliste() {
         ArrayList<Pris> expected = new ArrayList<>();
         ArrayList<Pris> result = Controller.findPrisProduktGruppe(FlaskeØl, TestPris);
@@ -52,16 +54,18 @@ public class TestController {
     }
 
     @Test
+    @Order(2)
     void test_tc2_1FlaskeØl() {
         Pris Test1 = TestPris.createPris(p1, 20);
         ArrayList<Pris> actual = Controller.findPrisProduktGruppe(FlaskeØl, TestPris);
         ArrayList<Pris> expected = new ArrayList<>();
         expected.add(Test1);
         // Test
-        assertArrayEquals(actual.toArray(), expected.toArray());
+        assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
     @Test
+    @Order(3)
     void test_tc3_3FlaskeØl() {
         Pris Test1 = TestPris.createPris(p1,20);
         Pris Test2 = TestPris.createPris(p2,40);
@@ -76,6 +80,7 @@ public class TestController {
     }
 
     @Test
+    @Order(4)
     void test_tc4_FlereProduktGrupper() {
         Pris Test1 = TestPris.createPris(p3, 50);
         Pris Test2 = TestPris.createPris(p4, 500);

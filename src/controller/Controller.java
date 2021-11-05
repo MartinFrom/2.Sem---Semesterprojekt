@@ -447,9 +447,6 @@ public class Controller {
         udlejning1.createOrdreLinje(5, fustageJulebryg20L);
         udlejning1.createOrdreLinje(1, butik10kgKulsyre);
 
-
-
-
     }
 
     public static Controller getTestController() {

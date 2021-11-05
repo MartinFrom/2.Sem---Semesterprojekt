@@ -33,6 +33,10 @@ public class Udlejning extends Ordre{
 
     //Metoder
     public OrdreLinje afleverProdukter(int antal, Pris pris) {
+        if (antal <= 0) {
+            throw new IllegalArgumentException("Antal skal være større end 0");
+        }
+
         OrdreLinje OL = new OrdreLinje(antal, pris);
         Produkter.add(OL);
         return OL;

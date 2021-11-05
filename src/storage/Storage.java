@@ -44,6 +44,7 @@ public class Storage {
         return new ArrayList<>(prislister);
     }
 
+
     //----------------------------------------------------------------------
 
     public static void addProdukt(Produkt produkt) {

@@ -138,6 +138,10 @@ public class Ordre {
      * Pre: Produkter eksisterer, pris klassen eksisterer
      */
     public OrdreLinje createOrdreLinje(int antal, Pris pris) {
+        if (antal <= 0) {
+            throw new IllegalArgumentException("Antal skal være større end 0");
+        }
+
         OrdreLinje OL = new OrdreLinje(antal, pris);
         ordrelinjer.add(OL);
         return OL;
