@@ -2,6 +2,8 @@ package model;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Modellerer en pris
  */
 
 public class Pris {
@@ -10,13 +12,24 @@ public class Pris {
     private Prisliste prisliste;
     private UdlejningsProdukt udlejningsProdukt = null;
 
-
+    /**
+     * Initialiserer en pris med prisen for et bestemt produkt og prisliste
+     * @param pris
+     * @param produkt
+     * @param prisliste
+     */
     public Pris(double pris, Produkt produkt, Prisliste prisliste) {
         this.pris = pris;
         this.produkt = produkt;
         this.prisliste = prisliste;
     }
 
+    /**
+     * Initialiserer en pris med prisen for det valgte udlejningsprodukt og prisliste
+     * @param pris
+     * @param udlejningsProdukt
+     * @param prisliste
+     */
     public Pris(double pris, UdlejningsProdukt udlejningsProdukt, Prisliste prisliste) {
         this.pris = pris;
         this.udlejningsProdukt = udlejningsProdukt;
@@ -24,7 +37,6 @@ public class Pris {
     }
 
     //getters
-
     public double getPris() {
         return pris;
     }
@@ -42,7 +54,6 @@ public class Pris {
     }
 
     //setters
-
     public void setPris(double pris) {
         this.pris = pris;
     }

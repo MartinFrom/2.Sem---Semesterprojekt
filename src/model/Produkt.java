@@ -2,6 +2,8 @@ package model;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Modellerer et produkt
  */
 
 public class Produkt {
@@ -9,6 +11,11 @@ public class Produkt {
     private int produktnummer;
     private ProduktGruppe produktGruppe;
 
+    /**
+     * Initialiserer et produkt med et navn og en produktgruppe
+     * @param navn
+     * @param produktGruppe
+     */
     public Produkt (String navn, ProduktGruppe produktGruppe) {
         this.navn = navn;
         this.produktGruppe = produktGruppe;
@@ -16,7 +23,6 @@ public class Produkt {
     }
 
     //getters
-
     public String getNavn() {
         return navn;
     }
@@ -30,7 +36,6 @@ public class Produkt {
     }
 
     //setters
-
     public void setNavn(String navn) {
         this.navn = navn;
     }

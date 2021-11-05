@@ -2,19 +2,25 @@ package model;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Modellerer en ordrelinje
  */
 
 public class OrdreLinje {
     private Pris pris;
     private int antal;
 
+    /**
+     * Initialiserer en ordrelinje med antal og pris
+     * @param antal
+     * @param pris
+     */
     public OrdreLinje(int antal, Pris pris) {
         this.antal = antal;
         this.pris = pris;
     }
 
     //getters
-
     public int getAntal() {
         return antal;
     }
@@ -24,7 +30,6 @@ public class OrdreLinje {
     }
 
     //setters
-
     public void setAntal(int antal) {
         this.antal = antal;
     }

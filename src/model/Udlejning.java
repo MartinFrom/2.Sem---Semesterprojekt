@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Modellerer en udlejning
  */
 
 public class Udlejning extends Ordre{
@@ -13,45 +15,50 @@ public class Udlejning extends Ordre{
     private boolean erBetalt;
     private ArrayList<OrdreLinje> brugteProdukter = new ArrayList<>(); // Bliver ikke brugt. Tiltænkt som oversigt over afleverede Produkter til beregning af pant-retur pris
 
+    /**
+     * Initialiserer en udlejning med startdato, slutdato, ordreNr og en prisliste
+     * @param StartDato
+     * @param Slutdato
+     * @param ordreNr
+     * @param prisliste
+     */
     public Udlejning (LocalDate StartDato, LocalDate Slutdato, int ordreNr, Prisliste prisliste) {
         super(ordreNr, prisliste);
         this.StartDato = StartDato;
         this.SlutDato = Slutdato;
     }
 
-    // getters og setters
-    public void setErBetalt(boolean erBetalt) {
-        setErBetalt(erBetalt);
-    }
-
-    public boolean isErBetalt() {
-        return erBetalt;
-    }
-
+    //getters
     public LocalDate getStartDato() {
         return StartDato;
-    }
-
-    public void setStartDato(LocalDate startDato) {
-        StartDato = startDato;
     }
 
     public LocalDate getSlutDato() {
         return SlutDato;
     }
 
+    public boolean isErBetalt() {
+        return erBetalt;
+    }
+
+    //setters
+    public void setStartDato(LocalDate startDato) {
+        StartDato = startDato;
+    }
+
     public void setSlutDato(LocalDate slutDato) {
         SlutDato = slutDato;
     }
 
-    //Metoder
+    public void setErBetalt(boolean erBetalt) {
+        setErBetalt(erBetalt);
+    }
 
     /**
      * Metode til aflevering af produkter
-     * Bliver ikke brugt, da metoden er færdigarbejdet
+     * Bliver ikke brugt, da metoden ikke er færdigarbejdet
      * @param antal
      * @param pris
-     * @return
      */
     public OrdreLinje afleverProdukter(int antal, Pris pris) {
         if (antal <= 0) {
@@ -65,7 +72,6 @@ public class Udlejning extends Ordre{
 
     /**
      * beregner pant ud fra Ordrelinjernes produkters pant
-     * @return
      */
     public double beregnPant() {
        ArrayList<OrdreLinje> Produkter = super.getOrdrelinjer();

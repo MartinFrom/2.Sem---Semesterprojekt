@@ -16,7 +16,6 @@ public class Controller {
      * Finder de priser der har produkter til fælles med produktGruppe input
      * @param produktGruppe
      * @param prisliste
-     * @return
      */
     public static ArrayList<Pris> findPrisProduktGruppe(ProduktGruppe produktGruppe, Prisliste prisliste) {
         ArrayList<Pris> result = new ArrayList<>();
@@ -175,7 +174,9 @@ public class Controller {
     }
 
     /**
-     * initStorage der opretter 2 Prislister (Butik/Fredagsbar) baseret på udleveret oplysninger
+     * initStorage der opretter 2 prislister (Butik/Fredagsbar), produktgrupper der bliver tilknyttet de to
+     * prislister, og produkter der bliver tilknyttet de forskellige produktgrupper. Ud fra udleveret
+     * information. Derudover bliver der også oprettet tre ordrer, der har fået tilknyttet nogle ordrelinjer
      */
     public static void initStorage() {
         //Prisliste
@@ -451,10 +452,6 @@ public class Controller {
         Ordre ordre3 = Controller.createOrdre(butik);
         ordre3.createOrdreLinje(10, butikForårsbryg);
         ordre3.setBetalingsform(kontant);
-
-
-
-
     }
 
     public static Controller getTestController() {

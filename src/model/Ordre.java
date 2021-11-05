@@ -15,9 +15,9 @@ public class Ordre {
     private ArrayList<OrdreLinje> ordrelinjer = new ArrayList<>();
 
     /**
-     * Initialiserer en ordre med ordreNr, prisliste og betalingsform
-     * @param ordreNr ordreNr for ordren
-     * @param prisliste prisliste for ordren
+     * Initialiserer en ordre med ordreNr og prisliste
+     * @param ordreNr
+     * @param prisliste
      */
     public Ordre(int ordreNr, Prisliste prisliste) {
         this.ordreNr = ordreNr;
@@ -25,98 +25,43 @@ public class Ordre {
     }
 
     //getters
-
-    /**
-     * Returnerer ordreNr for ordren
-     * @return ordreNr på ordren
-     * Pre: ordre objekt eksisterer
-     */
     public int getOrdreNr() {
         return ordreNr;
     }
 
-    /**
-     * Returnerer den samlede pris for ordren
-     * @return samlede pris på ordren
-     * Pre: ordre objekt eksisterer
-     */
     public double getSamletPris() {
         return samletPris;
     }
 
-    /**
-     * Returnerer prislisten for ordren
-     * @return prislisten på ordren
-     * Pre: ordre objekt eksisterer
-     */
     public Prisliste getPrisliste() {
         return prisliste;
     }
-
-    /**
-     * Returnerer betalingsformen for ordren
-     * @return betalingsform på ordren
-     * Pre: ordre objekt eksisterer
-     */
-  //  public Betalingsform1 getBetalingsform() {
- //       return betalingsform;
-  //  }
 
     public Betalingsform getBetalingsform() {
         return betalingsform;
     }
 
-    /**
-     * Returnerer en array liste med ordre linjerne for ordren
-     * @return ordrelinjerne på ordren
-     * Pre: ordre objekt eksisterer, OrdreLinje klassen eksisterer
-     */
     public ArrayList<OrdreLinje> getOrdrelinjer() {
         return new ArrayList<>(ordrelinjer);
     }
 
     //setters
-     /**
-     * Registerer ordreNr for ordren
-     * @param ordreNr ordreNr på ordren
-     * Pre: ordre objekt eksisterer
-     */
     public void setOrdreNr(int ordreNr) {
         this.ordreNr = ordreNr;
     }
 
-    /**
-     * Registrerer den samlede pris for ordren
-     * @param samletPris den samlede pris på ordren
-     * Pre: ordre objekt eksisterer
-     */
     public void setSamletPris(double samletPris) {
         this.samletPris = samletPris;
     }
 
-    /**
-     * Registrerer den brugte prisliste for ordren
-     * @param prisliste brugte prisliste på ordren
-     * Pre: ordre objekt eksisterer, Prisliste objekt eksisterer
-     */
     public void setPrisliste(Prisliste prisliste) {
         this.prisliste = prisliste;
     }
 
-    /**
-     * Registrerer den brugte betalingsform for ordren
-     * @param betalingsform brugte betalingsform på ordren
-     * Pre: ordre objekt eksisterer, betalingsform objekt eksisterer
-     */
     public void setBetalingsform(Betalingsform betalingsform) {
         this.betalingsform = betalingsform;
     }
 
-    /**
-     * Registrerer ordrelinjer for ordren
-     * @param ordrelinjer liste af ordrelinjer på ordren
-     * Pre: ordre objekt eksisterer, Ordrelinje objekt eksisterer
-     */
     public void setOrdrelinjer(ArrayList<OrdreLinje> ordrelinjer) {
         this.ordrelinjer = ordrelinjer;
     }
@@ -125,10 +70,9 @@ public class Ordre {
 
     /**
      * Initialiserer en ordrelinje med antal og pris
-     * @param antal antal af valgte produkt på ordrelinje
-     * @param pris pris for det valgte produkt
+     * @param antal
+     * @param pris
      * @return ordrelinje med antal og pris
-     * Pre: Produkter eksisterer, pris klassen eksisterer
      */
     public OrdreLinje createOrdreLinje(int antal, Pris pris) {
         if (antal <= 0) {
@@ -141,8 +85,8 @@ public class Ordre {
     }
 
     /**
-     * Denne metode slette en ordrelinje fra listen af ordrelinjer
-     * @param ordrelinje ordrelinje
+     * Denne metode sletter en ordrelinje fra listen af ordrelinjer
+     * @param ordrelinje
      * Pre: Ordrelinje eksisterer
      */
     public void removeOrdrelinje(OrdreLinje ordrelinje) {
@@ -154,7 +98,7 @@ public class Ordre {
     /**
      * Denne metode beregner den samlede pris for odren
      * @return samlet pris for ordren
-     * Pre: ordre objekt eksisterer
+     * Pre: Ordrelinje eksisterer
      */
     public double beregnPris() {
         this.samletPris = 0;

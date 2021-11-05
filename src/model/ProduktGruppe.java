@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
+ * Modellerer en produktgruppe
  */
 
 public class ProduktGruppe {
@@ -11,12 +13,23 @@ public class ProduktGruppe {
 
     private ArrayList<Produkt> produkter = new ArrayList<>();
 
+    /**
+     * Initialiserer en produktgruppe med et navn
+     * @param navn
+     */
     public ProduktGruppe(String navn) {
         this.navn = navn;
     }
 
     //-----------------------------Associering til "Produkt"----------------------------------------
-    public Produkt createProdukt(String navn, int produktnummer) {
+
+    /**
+     * Initialiserer et produkt med et navn og sammensætter det oprettet produkt med den dertilhørende
+     * produktgruppe. Tilføjer også produktet til en arrayliste af produkter
+     * @param navn
+     * @return
+     */
+    public Produkt createProdukt(String navn) {
         Produkt produkt = new Produkt(navn, this);
         produkter.add(produkt);
         return produkt;
@@ -36,7 +49,6 @@ public class ProduktGruppe {
     //---------------------------------------------------------------------
 
     //getters
-
     public String getNavn() {
         return navn;
     }
@@ -46,7 +58,6 @@ public class ProduktGruppe {
     }
 
     // setters
-
     public void setNavn(String navn) {
         this.navn = navn;
     }
