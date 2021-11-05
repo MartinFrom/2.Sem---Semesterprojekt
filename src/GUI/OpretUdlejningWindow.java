@@ -9,12 +9,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
-import org.w3c.dom.Text;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
+
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
 
 public class OpretUdlejningWindow extends Stage {
 
@@ -126,6 +128,9 @@ public class OpretUdlejningWindow extends Stage {
         pane.add(txfPant,5,3);
     }
 
+    /**
+     * Opretter Udlejning
+     */
     private void startUdlejning() {
         if (udlejning == null) {
             udlejning = Controller.createUdlejning(datePicker.getValue(), datePicker.getValue(), Controller.getPrisLister().get(1));

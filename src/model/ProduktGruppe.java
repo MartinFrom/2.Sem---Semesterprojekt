@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class ProduktGruppe {
     private String navn;
 

@@ -2,16 +2,11 @@ package GUI;
 
 
 import controller.Controller;
-import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -20,13 +15,13 @@ import model.Pris;
 import model.Produkt;
 import model.ProduktGruppe;
 import storage.Storage;
-
-import java.lang.reflect.Array;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Integer.parseInt;
+
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
 
 public class OpretArrangementWindow extends Stage {
 

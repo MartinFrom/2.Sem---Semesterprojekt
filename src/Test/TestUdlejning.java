@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
+
 public class TestUdlejning {
 
     private Udlejning udlejning;
@@ -13,11 +17,11 @@ public class TestUdlejning {
     private Prisliste TestPris;
     private ProduktGruppe produktGruppeTest;
 
-    private Produkt p1;
-    private Produkt p2;
-    private Produkt p3;
-    private Produkt p4;
-    private Produkt p5;
+    private UdlejningsProdukt p1;
+    private UdlejningsProdukt p2;
+    private UdlejningsProdukt p3;
+    private UdlejningsProdukt p4;
+    private UdlejningsProdukt p5;
 
 
 

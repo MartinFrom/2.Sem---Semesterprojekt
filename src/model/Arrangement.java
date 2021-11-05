@@ -3,6 +3,8 @@ package model;
 import java.time.LocalDate;
 
 /**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
  * Modellerer en prisliste for arrangement
  */
 public class Arrangement extends Prisliste {

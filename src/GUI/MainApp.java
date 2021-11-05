@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -13,8 +12,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.*;
-
 import java.util.ArrayList;
+
+/**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ */
 
 public class MainApp extends Application{
     private int mainWindowwidth = 1200;
@@ -96,13 +98,12 @@ public class MainApp extends Application{
 
         });
 
-        Button btnBetaling = new Button ("Registrer" +"\n"+"betaling");
+        Button btnBetaling = new Button ("Registrer" +" betaling" +"\n" + "(COMMING SOON!)");
         pane.add(btnBetaling,2,5);
         btnBetaling.setPrefHeight(75);
-        btnBetaling.setPrefWidth(75);
         btnBetaling.setOnAction(e -> {
           setLwOrdre();
-          lwOrdre.getSelectionModel().getSelectedItem().setErBetalt(true);
+
         });
 
         // ListView Ordre/Udlejninger
@@ -116,11 +117,17 @@ public class MainApp extends Application{
         lwOrdre.setPrefWidth(500);
         setLwOrdre();
 
+        Button btnOpdate = new Button("Update");
+        pane.add(btnOpdate,1,3);
+        btnOpdate.setOnAction(e -> {
+            setLwOrdre();
+        });
+
         // ListView Ordre Listener
         ChangeListener<Ordre> ordreChangeListener = (ov, oldOrdre, newOrdre) -> this.selectedOrdreChanged();
         lwOrdre.getSelectionModel().selectedItemProperty().addListener(ordreChangeListener);
 
-        Label lblBetaling = new Label("Vælg betalingsform:");
+        Label lblBetaling = new Label("Vælg betalingsform: (COMMING SOON!)");
         pane.add(lblBetaling,2,3);
         // ListView
         lwBetalingsform = new ListView<>();
@@ -157,14 +164,20 @@ public class MainApp extends Application{
         lwOrdre.getItems().setAll(samletOrdreUdlejning());
     }
 
+    /**
+     * Sammensætter Ordre og Udlejninger
+     * @return
+     */
     private ArrayList<Ordre> samletOrdreUdlejning() {
         ArrayList<Ordre> result1;
         result1 = Controller.getOrdrer();
         ArrayList<Udlejning> result2;
         result2 = Controller.getUdlejninger();
 
-        result1.addAll(result2);
 
+        result1.addAll(result2);
         return result1;
     }
+
+
 }

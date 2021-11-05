@@ -3,12 +3,13 @@ package model;
 import java.util.ArrayList;
 
 /**
+ * @author Alexander V Steen, Tobias Thomsen og Martin From
+ *
  * Modellerer en ordre
  */
 public class Ordre {
     private int ordreNr;
     private double samletPris;
-    private boolean erBetalt;
     private Prisliste prisliste;
     private Betalingsform betalingsform;
     private ArrayList<OrdreLinje> ordrelinjer = new ArrayList<>();
@@ -74,16 +75,8 @@ public class Ordre {
         return new ArrayList<>(ordrelinjer);
     }
 
-    public boolean isErBetalt() {
-        return erBetalt;
-    }
-
     //setters
-    public void setErBetalt(boolean erBetalt) {
-        this.erBetalt = erBetalt;
-    }
-
-    /**
+     /**
      * Registerer ordreNr for ordren
      * @param ordreNr ordreNr på ordren
      * Pre: ordre objekt eksisterer
