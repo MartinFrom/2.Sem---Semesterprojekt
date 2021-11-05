@@ -1,7 +1,9 @@
-package Test;
+package test;
 
 import controller.Controller;
 import model.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +26,8 @@ public class TestUdlejning {
     private UdlejningsProdukt p5;
 
 
-
-    void setUp() throws Exception {
+    @BeforeEach
+    void setUp() {
         con = Controller.getTestController();
 
         TestPris = Controller.createPrisliste("TestPris");
@@ -42,6 +44,7 @@ public class TestUdlejning {
     }
 
     @Test
+    @Order(1)
     void test_tc1_0Produkter() {
         double expected = 0;
         double actual = udlejning.beregnPant();
@@ -50,6 +53,7 @@ public class TestUdlejning {
     }
 
     @Test
+    @Order(2)
     void test_tc2_1Produkter() {
         TestPris.createUdlejningsPris(p2, 700);
         double expected = 200;
@@ -59,6 +63,7 @@ public class TestUdlejning {
     }
 
     @Test
+    @Order(3)
     void test_tc3_5Produkter() {
         TestPris.createUdlejningsPris(p1, 575);
         TestPris.createUdlejningsPris(p2, 700);

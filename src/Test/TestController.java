@@ -5,10 +5,12 @@ import model.Pris;
 import model.Prisliste;
 import model.Produkt;
 import model.ProduktGruppe;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Alexander V Steen, Tobias Thomsen og Martin From
@@ -29,8 +31,8 @@ public class TestController {
     private Produkt p4;
     private Produkt p5;
 
-
-    void setUp() throws Exception {
+    @BeforeEach
+    void setUp() {
         ctrl = Controller.getTestController();
 
         TestPris = Controller.createPrisliste("TestPris");
@@ -54,7 +56,7 @@ public class TestController {
         ArrayList<Pris> expected = new ArrayList<>();
         ArrayList<Pris> result = Controller.findPrisProduktGruppe(FlaskeØl, TestPris);
         // Test
-        assertArrayEquals(result.toArray(), expected.toArray());
+        assertArrayEquals(expected.toArray(), result.toArray());
     }
 
     @Test

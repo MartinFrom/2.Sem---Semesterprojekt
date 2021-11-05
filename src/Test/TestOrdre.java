@@ -1,7 +1,9 @@
-package Test;
+package test;
 
 import controller.Controller;
 import model.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,7 +33,8 @@ public class TestOrdre {
     private Pris pris4;
     private Pris pris5;
 
-    void setUp() throws Exception {
+    @BeforeEach
+    void setUp() {
         TestPris = Controller.createPrisliste("TestPris");
 
         FlaskeØl = Controller.createProduktGruppe("FlaskeØl");
@@ -56,6 +59,7 @@ public class TestOrdre {
     }
 
     @Test
+    @Order(1)
     void test_tc1_0Produkter() {
         double expected = 0;
         double actual = ordre.beregnPris();
@@ -64,6 +68,7 @@ public class TestOrdre {
     }
 
     @Test
+    @Order(2)
     void test_tc2_1Produkter() {
         ordre.createOrdreLinje(1, pris1);
         double expected = 36;
@@ -73,6 +78,7 @@ public class TestOrdre {
     }
 
     @Test
+    @Order(3)
     void test_tc3_5Produkter() {
         ordre.createOrdreLinje(1, pris1);
         ordre.createOrdreLinje(1, pris2);
