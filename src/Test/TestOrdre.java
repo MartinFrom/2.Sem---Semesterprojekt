@@ -60,7 +60,7 @@ public class TestOrdre {
 
     @Test
     @Order(1)
-    void test_tc1_0Produkter() {
+    void test_tc8_0Produkter() {
         double expected = 0;
         double actual = ordre.beregnPris();
         // Test
@@ -69,7 +69,7 @@ public class TestOrdre {
 
     @Test
     @Order(2)
-    void test_tc2_1Produkter() {
+    void test_tc9_1Produkter() {
         ordre.createOrdreLinje(1, pris1);
         double expected = 36;
         double actual = ordre.beregnPris();
@@ -79,7 +79,7 @@ public class TestOrdre {
 
     @Test
     @Order(3)
-    void test_tc3_5Produkter() {
+    void test_tc10_5Produkter() {
         ordre.createOrdreLinje(1, pris1);
         ordre.createOrdreLinje(1, pris2);
         ordre.createOrdreLinje(1, pris3);

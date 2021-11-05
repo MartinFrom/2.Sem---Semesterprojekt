@@ -45,7 +45,7 @@ public class TestUdlejning {
 
     @Test
     @Order(1)
-    void test_tc1_0Produkter() {
+    void test_tc5_0Produkter() {
         double expected = 0;
         double actual = udlejning.beregnPant();
         // Test
@@ -54,7 +54,7 @@ public class TestUdlejning {
 
     @Test
     @Order(2)
-    void test_tc2_1Produkter() {
+    void test_tc6_1Produkter() {
         TestPris.createUdlejningsPris(p2, 700);
         double expected = 200;
         double actual = udlejning.beregnPant();
@@ -64,7 +64,7 @@ public class TestUdlejning {
 
     @Test
     @Order(3)
-    void test_tc3_5Produkter() {
+    void test_tc7_5Produkter() {
         TestPris.createUdlejningsPris(p1, 575);
         TestPris.createUdlejningsPris(p2, 700);
         TestPris.createUdlejningsPris(p3, 775);
